@@ -1,0 +1,30 @@
+{
+  "name": "portal",
+  "private": true,
+  "version": "0.1.0",
+  "description": "White Tree",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.4.1",
+    "@strapi/plugin-users-permissions": "4.4.1",
+    "@strapi/strapi": "4.4.1",
+    "better-sqlite3": "^7.6.2"
+  },
+  "author": {
+    "name": "Ydrea"
+  },
+  "strapi": {
+    "uuid": "2628c975-e7b6-4ab3-9ee1-9a3a81c0dafe"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
