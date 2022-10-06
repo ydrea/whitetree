@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_caterers_restorans",
+  "info": {
+    "displayName": "Restoran"
+  },
+  "options": {},
+  "attributes": {
+    "radnoVrijeme": {
+      "type": "time"
+    },
+    "ime": {
+      "type": "string"
+    },
+    "fotoMain": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_products_krumpirs",
+  "info": {
+    "displayName": "Proizvodjac",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "proizvod": {
+      "type": "string"
+    },
+    "datum": {
+      "type": "date"
+    },
+    "adresa": {
+      "type": "email"
+    },
+    "isOrganic": {
+      "type": "boolean"
+    },
+    "isLocal": {
+      "type": "boolean"
+    },
+    "isAffordable": {
+      "type": "boolean"
+    }
+  }
+}
