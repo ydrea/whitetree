@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@strapi/provider-email-sendgrid": "^4.4.2",
-    "@strapi/provider-upload-aws-s3": "^4.4.2"
-  }
-}
