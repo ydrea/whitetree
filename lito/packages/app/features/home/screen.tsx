@@ -9,24 +9,21 @@ export function HomeScreen() {
     <View
       sx={{ flex: 1, justifyContent: 'center', alignItems: 'center', p: 16 }}
     >
-      <H1 sx={{ fontWeight: '800' }}>Welcome to Solito.</H1>
+      <H1 sx={{ fontWeight: '800' }}>Welcome to White Tree.</H1>
       <View sx={{ maxWidth: 600 }}>
-        <P sx={{ textAlign: 'center' }}>
-          Here is a basic starter to show you how you can navigate from one
-          screen to another. This screen uses the same code on Next.js and React
-          Native.
+        <P sx={{ textAlign: 'center' }}>White Tree is a web portal (B2B) and a mobile app (B2C), aiming to identify and support restaurants and catering businesses that offer locally sourced, organically grown, and/or affordable menu items.
         </P>
         <P sx={{ textAlign: 'center' }}>
-          Solito is made by{' '}
+          White Tree is made by{' '}
           <A
-            href="https://twitter.com/fernandotherojo"
+            href="https://github.com/ydrea"
             // @ts-expect-error react-native-web only types
             hrefAttrs={{
               target: '_blank',
               rel: 'noreferrer',
             }}
             sx={{ color: 'blue' }}
-          >Andrija 
+          >daYDREAmnation
           </A>
           .
         </P>
