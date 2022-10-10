@@ -1,7 +1,19 @@
 {
-  "name": "web",
+  "name": "web-wt",
   "version": "1.0.0",
+  "main": "index.js",
+  "author": "ydrea",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.8.4"
+  },
   "dependencies": {
-    "cross-env": "5.0.5"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "start": "parcel serve ./index.html",
+    "build": "parcel build ./index.html"
   }
 }
