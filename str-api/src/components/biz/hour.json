@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_biz_hours",
+  "info": {
+    "displayName": "hour"
+  },
+  "options": {},
+  "attributes": {
+    "open": {
+      "type": "time"
+    },
+    "close": {
+      "type": "time"
+    }
+  }
+}
