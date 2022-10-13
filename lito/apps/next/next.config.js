@@ -19,6 +19,7 @@ const nextConfig = {
   // once that gets fixed, set this back to true
   reactStrictMode: false,
   webpack5: true,
+  // disableStaticImages: true
 }
 
 const transform = withPlugins([withTM, withFonts, withImages, withExpo])

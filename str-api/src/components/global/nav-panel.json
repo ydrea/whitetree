@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_global_nav_panels",
+  "info": {
+    "displayName": "nav_panel"
+  },
+  "options": {},
+  "attributes": {
+    "menuLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    }
+  }
+}
