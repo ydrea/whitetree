@@ -6,7 +6,7 @@ export function HomeScreen() {
   const sx = useSx()
 
   // http://localhost:1337/uploads/logo_60e391feec.png
-  // https://localhost:1337/uploads/logo_5c79368669.svg
+  // 
 
   return (
     <View
