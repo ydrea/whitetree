@@ -22,10 +22,10 @@
       "relation": "oneToMany",
       "target": "api::product.product"
     },
-    "ok": {
+    "confirmed": {
       "type": "boolean"
     },
-    "ok_datetime": {
+    "confirmation_date": {
       "type": "datetime"
     }
   }

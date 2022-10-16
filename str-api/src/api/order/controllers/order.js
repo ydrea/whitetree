@@ -21,7 +21,13 @@ const user = ctx.state.user
               confirmed: true,
               confirmation_date: new Date()
             }
-        }) 
+        })
+        
+        //send an email
+        strapi.service("api::order.order").sendEmail(
+          id,
+          ctx.state.user)
+
         return {message: 'confirmed'}
       },
   
@@ -45,16 +51,4 @@ const user = ctx.state.user
           })
           return { order }
         },
-// // //confirm order
-//       confirmOrder: async (ctx, next) => {
-//         const {id} = ctx.request.params
-// const user = ctx.state.user
-//         const order = await strapi.entityService.findOne("api::order.order", id, {
-//             data: {
-//               confirmed: true,
-//               confirmation_date: new Date()
-//             }
-//         }) 
-//         return {message: 'confirmed'}
-//       },
   }));
