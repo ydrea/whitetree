@@ -1,19 +1,33 @@
-import { A, H1, Image, P, Row, Text, useSx, View } from 'dripsy'
-import { TextLink } from 'solito/link'
-import { MotiLink } from 'solito/moti'
+import { A, H1, P, Row, useSx, View } from 'dripsy';
+import { TextLink } from 'solito/link';
 //
-export function HomeScreen() {
+export async function getStaticProps() {
+  console.log('server side');
+  const res = await fetch('http://localhost:1337/api/restaurants')
+  const restaurants = await res.json()
+
+  const items = restaurants.data
+  console.log(items)
+  return { props: { items } }
+}
+//
+export function HomeScreen({ items }) {
   const sx = useSx()
 
   // http://localhost:1337/uploads/logo_60e391feec.png
   // 
-
   return (
     <View
       sx={{ flex: 1, justifyContent: 'center', alignItems: 'center', p: 16 }}
     >
+      {/* {items && items.map((i) => {
+        return (
+          <View key={i.id}>{i.id}{i.attributes.ime}</View>
+        )
+      })} */}
+      {/* 
       <Image source={{ uri: 'http://localhost:1337/uploads/logo_60e391feec.png' }}
-        sx={{ width: 300, height: 300 }} />
+        sx={{ width: 300, height: 300 }} /> */}
 
       <H1 sx={{ fontWeight: '800' }}>Welcome to White Tree.</H1>
       <View sx={{ maxWidth: 600 }}>
@@ -32,6 +46,7 @@ export function HomeScreen() {
           >daYDREAmnation
           </A>
           .
+          {JSON.stringify(items)}
         </P>
       </View>
       <View sx={{ height: 32 }} />
@@ -46,7 +61,7 @@ export function HomeScreen() {
         </TextLink>
         <View sx={{ width: 32 }} />
 
-        <MotiLink
+        {/* <MotiLink
           href="/user/fernando"
           animate={({ hovered, pressed }) => {
             'worklet'
@@ -71,7 +86,7 @@ export function HomeScreen() {
           >
             Moti Link
           </Text>
-        </MotiLink>
+        </MotiLink> */}
       </Row>
     </View>
   )
