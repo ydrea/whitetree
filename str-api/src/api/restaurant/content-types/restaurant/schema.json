@@ -32,7 +32,13 @@
       "mappedBy": "restaurants"
     },
     "Slug": {
-      "type": "string"
+      "type": "uid"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "restaurant"
     }
   }
 }
