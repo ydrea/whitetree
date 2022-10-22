@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 
+import styles from '../../styles/Home.module.css';
+//
 // //how many?
 // export async function getStaticPaths () {
 //     const res = await fetch('http://localhost:1337/api/restaurants')
@@ -35,12 +37,15 @@ export async function getServerSideProps({params}){
 export default function Restaurant({restaurant}) {
  
   return (
-    <div>
-      <Link href='/'>
-        <a>&rarrw;</a>
+    <div className={styles.grid}>
+      <Link className={styles.card} href='/'>
+        <h2>
+        <a>&lArr;
+      {restaurant.data.attributes.name}   
+      </a>  
+      </h2>
       </Link>
-      {/* {JSON.stringify(restaurant)} */}
-      {restaurant.data.attributes.name}      
+      {JSON.stringify(restaurant)} 
       </div>
   )
 }

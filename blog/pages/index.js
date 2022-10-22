@@ -30,7 +30,7 @@ export default function Home({items}) {
           <Link  href={`/restaurant/${i.id}`} key={i.id}>
           <a className={styles.card}>
 
-          <h2>{i.attributes.name} &rarr;</h2>
+          <h2>{i.attributes.name} &rArr;</h2>
           {i.attributes.description}
           </a>
           </Link>)
