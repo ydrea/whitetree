@@ -3,8 +3,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 //
+
 export async function getStaticProps() {
-  console.log('server side');
+  // console.log('server side');
   const res = await fetch('http://localhost:1337/api/restaurants')
   const restaurants = await res.json()
   const items = restaurants.data
@@ -26,12 +27,11 @@ export default function Home({items}) {
         <div className={styles.grid}> 
 
         {items && items.map((i) => (
-          <Link  href={`/api/restaurants/attributes/${i.attributes.Slug}`} key={i.id}>
+          <Link  href={`/restaurant/${i.id}`} key={i.id}>
           <a className={styles.card}>
 
           <h2>{i.attributes.name} &rarr;</h2>
-          {i.attributes.ime}
-          {i.id}
+          {i.attributes.description}
           </a>
           </Link>)
       )}

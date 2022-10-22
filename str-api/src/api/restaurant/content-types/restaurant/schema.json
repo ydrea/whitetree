@@ -12,17 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "info": {
-      "type": "component",
-      "repeatable": false,
-      "component": "biz.business"
-    },
     "hours": {
       "type": "component",
       "repeatable": false,
       "component": "biz.hour"
     },
-    "ime": {
+    "address": {
       "type": "string"
     },
     "categories": {
@@ -39,6 +34,22 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "restaurant"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "main_img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
