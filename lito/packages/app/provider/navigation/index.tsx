@@ -17,6 +17,8 @@ export function NavigationProvider({
             screens: {
               home: '',
               'user-detail': 'user/:id',
+              settings: 'settings',
+              restaurant: 'restaurant/:id',
             },
           },
         }),
