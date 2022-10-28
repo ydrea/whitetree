@@ -7,11 +7,12 @@ export const restaurantSlice = createSlice({
     initialState,
     reducers: {
   incr: (state) => {state.count += 1},
-  decr: (state) => {state.count -= 1}  
+  decr: (state) => {state.count -= 1},
+
     }
 })
 
 export const {incr, decr} = restaurantSlice.actions
-export const selectEm = (state) => state.counter.count
+export const selectCount = (state) => state.counter.count
 
 export default restaurantSlice.reducer

@@ -1,11 +1,12 @@
 import Head from 'next/head';
-// import Image from 'next/image';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
+import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
+import { API_URL } from '../utils/urls';
 //
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:1337/api/restaurants')
+  const res = await fetch('http://localhost:1337/api/restaurants?populate=*')
   const restaurants = await res.json()
   const items = restaurants.data
   console.log(items)
@@ -13,18 +14,21 @@ export async function getStaticProps() {
 }
 //
 export default function Home({items}) {
-  
-const dispatch = useDispatch()
- 
+  const dispatch = useDispatch()
 //
   
   return (
+    <Layout>
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
         <p className={styles.description}>
+      
+        {/* <img src='http://localhost:1337/uploads/logo_60e391feec.png'  
+   styles={{ width: 300, height: 300 }} /> */}
+
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
@@ -36,6 +40,8 @@ const dispatch = useDispatch()
 
           <h2>{i.attributes.name} &rArr;</h2>
           {i.attributes.description}
+
+          <img src={`${API_URL}`+`${i.attributes.main_img.data.attributes.name}`} />
           </a>
           </Link>)
       )}
@@ -47,7 +53,6 @@ const dispatch = useDispatch()
             <h2>Examples &rarr;</h2>
             <p> Next.js examples.</p>
           </a>
-<button>count</button>
           <a
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
@@ -58,6 +63,8 @@ const dispatch = useDispatch()
             </p>
           </a>
         </div>
+        <button>count</button>
+          
       </main>
 
       <footer className={styles.footer}>
@@ -73,5 +80,6 @@ const dispatch = useDispatch()
         </a>
       </footer>
     </div>
+    </Layout>
   )
 }

@@ -50,6 +50,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "restaurant"
     }
   }
 }
