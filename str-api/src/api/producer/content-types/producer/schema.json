@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "producers",
+  "info": {
+    "singularName": "producer",
+    "pluralName": "producers",
+    "displayName": "Producer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}

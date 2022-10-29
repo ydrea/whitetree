@@ -1,24 +1,30 @@
+import Link from 'next/link';
 import Layout from '../components/Layout';
-import { fetcher } from '../utils/api';
+import styles from '../styles/Home.module.css';
+//
 
 export async function getStaticProps(){
-  const resMenuItems = await fetcher (`${process.env.BASE_URL}/menus`)
-  console.log(resMenuItems);
-  return{
-    props:{menuitems: resMenuItems}
-  }
+  const res = await fetch (`${process.env.BASE_URL}/menus`)
+  const resMenuItems = await res.json()
+  const items = resMenuItems.data
+    return { props:{ items } }
 }
 
 
-const menus = ({menuitems}) => {
+const menus = ({items}) => {
   return (
     <Layout>
     <div>
         <span>
-          {JSON.stringify
-         (   menuitems
-         ) }
-        </span>
+        {items && items.map((i) => (
+          <Link  href={`/menu/${i.id}`} key={i.id}>
+          <a className={styles.card}>
+
+          <h2>{i.attributes.name} &rArr;</h2>
+          </a>
+          </Link>)
+        )}
+  </span>
     </div>
     </Layout>
   )

@@ -13,7 +13,8 @@ export async function getStaticProps() {
 //
 export default function Home({items}) {
   // const dispatch = useDispatch()
-//
+// {/* <img src={`${API_URL}`+`${i.attributes.main_img.data.attributes.name}`} /> */}
+
   
   return (
     <Layout>
@@ -37,12 +38,10 @@ export default function Home({items}) {
           <a className={styles.card}>
 
           <h2>{i.attributes.name} &rArr;</h2>
-          {i.attributes.description}
-
-          {/* <img src={`${API_URL}`+`${i.attributes.main_img.data.attributes.name}`} /> */}
+          {/* {i.attributes.description} */}
           </a>
           </Link>)
-      )}
+        )}
  
           <a
             href="https://github.com/vercel/next.js/tree/canary/examples"
