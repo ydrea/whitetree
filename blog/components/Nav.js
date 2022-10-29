@@ -32,9 +32,29 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link href="/films">
-              <a className="md:p-2 py-2 block hover:text-purple-400" href="#">
-                Films
+            <Link href="/producers">
+              <a className="md:p-2 py-2 block hover:text-purple-400" 
+              // href="#"
+              >
+                Producers
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/menus">
+              <a className="md:p-2 py-2 block hover:text-purple-400" 
+              // href="#"
+              >
+                Menus
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/products">
+              <a className="md:p-2 py-2 block hover:text-purple-400" 
+              // href="#"
+              >
+                Products
               </a>
             </Link>
           </li>

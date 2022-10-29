@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useDispatch } from 'react-redux';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
-import { API_URL } from '../utils/urls';
 //
 export async function getStaticProps() {
   const res = await fetch('http://localhost:1337/api/restaurants?populate=*')
@@ -14,7 +12,7 @@ export async function getStaticProps() {
 }
 //
 export default function Home({items}) {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 //
   
   return (
@@ -41,7 +39,7 @@ export default function Home({items}) {
           <h2>{i.attributes.name} &rArr;</h2>
           {i.attributes.description}
 
-          <img src={`${API_URL}`+`${i.attributes.main_img.data.attributes.name}`} />
+          {/* <img src={`${API_URL}`+`${i.attributes.main_img.data.attributes.name}`} /> */}
           </a>
           </Link>)
       )}
@@ -69,13 +67,14 @@ export default function Home({items}) {
 
       <footer className={styles.footer}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://github.com/ydrea"
           target="_blank"
           rel="noopener noreferrer"
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <img src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            {/* <img src={ `${BASE_URL}` + `${uploads/logo_5c79368669.svg}`}  */}
+            {/* alt="ydrea Logo" width={72} height={16} /> */}
           </span>
         </a>
       </footer>

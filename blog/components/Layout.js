@@ -5,12 +5,12 @@ const Layout=({children})=> {
   return (
     <>
     <Head>
-    <title>Layout</title>    
+    <title>white tree</title>    
     </Head> 
     <Nav />  
     <main>
         <div className="flex justify-center items-center bg-white
-          mx-auto w-2/4 rounded-lg my-16 p-16">
+          mx-auto w-2/4 rounded-lg ">
 
             <div className='text-3x1 font-medium'> {children} </div>
         </div>
