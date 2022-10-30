@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import Layout from '../components/Layout';
-import styles from "../styles/Home.module.c//";
+import styles from "../styles/Home.module.css";
 export async function getStaticProps() {
     const res = await fetch(`${process.env.BASE_URL}/producers`)
     const resProducers = await res.json()
