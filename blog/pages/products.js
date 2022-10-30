@@ -15,6 +15,11 @@ export default function Products({ items }) {
     <Layout>
       <div className={styles.container}>
         <main className={styles.main}>
+          <p className={styles.description}>
+            Get started by editing{" "}
+            <code className={styles.code}>pages/index.js</code>
+          </p>
+
           <div className={styles.grid}>
             <span>
               {items &&

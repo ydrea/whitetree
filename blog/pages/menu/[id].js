@@ -4,7 +4,7 @@ import styles from "../../styles/Home.module.css";
 
 export async function getServerSideProps({ params }) {
   const res = await fetch(
-    `http://localhost:1337/api/restaurants/${params.id}?populate=*`
+    `http://localhost:1337/api/menus/${params.id}?populate=*`
   );
   console.log(res);
   return {
@@ -25,8 +25,8 @@ export default function Restaurant({ item }) {
       </Link>
       {/* <p>{item.data.attributes.address}</p> */}
 
-      {/* <img src={item.data.attributes.main_img.data.attributes.name} />
-      {JSON.stringify(item.data.attributes.main_img.data.attributes.name)} */}
+      {/* <img src={item.data.attributes.main_img.data.attributes.name} /> */}
+      {/* {JSON.stringify(item.data.attributes.main_img.data.attributes.name)} */}
     </div>
   );
 }
