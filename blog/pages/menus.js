@@ -28,6 +28,7 @@ const menus = ({ items }) => {
                     <Link href={`/menu/${i.id}`} key={i.id}>
                       <a className={styles.card}>
                         <h2>{i.attributes.name} &rArr;</h2>
+                        {i.attributes.description}
                       </a>
                     </Link>
                   ))}

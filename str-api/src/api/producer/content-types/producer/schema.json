@@ -4,7 +4,8 @@
   "info": {
     "singularName": "producer",
     "pluralName": "producers",
-    "displayName": "Producer"
+    "displayName": "Producer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

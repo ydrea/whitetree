@@ -28,6 +28,9 @@
       "relation": "manyToOne",
       "target": "api::restaurant.restaurant",
       "inversedBy": "products"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
