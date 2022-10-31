@@ -1,9 +1,22 @@
-import { configureStore } from "@reduxjs/toolkit";
-import restaurantReducer from "./restaurantSlice";
+import apiReducer from "./apiSlice";
+import userReducer from "./userSlice";
 
-export const store = configureStore({
-    reducer:{
-    restaurant: restaurantReducer,
-    }
-})
-
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+//
+const rootReducer = combineReducers({
+  user: userReducer,
+  api: apiReducer,
+});
+export function setupStore(preloadedState) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  });
+}
+//
+export default configureStore({
+  reducer: {
+    api: apiReducer,
+    user: userReducer,
+  },
+});
