@@ -1,18 +1,16 @@
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import styles from "../styles/header.module.css";
-
 //
-
 const Nav = () => {
   const { data: session, status } = useSession();
+  console.log(session);
   const loading = status === "loading";
   //
-
   return (
     <header>
       <noscript>
-        <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
+        <style>{`.nojs-show { opacity: .1; top: 0; }`}</style>
       </noscript>
       <div className={styles.signedInStatus}>
         <p
@@ -67,39 +65,25 @@ const Nav = () => {
       <nav>
         <ul className={styles.navItems}>
           <li className={styles.navItem}>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
+            <Link href="/">Home</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/client">
-              <a>Client</a>
-            </Link>
+            <Link href="/client">Client</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/server">
-              <a>Server</a>
-            </Link>
+            <Link href="/server">Server</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/protected">
-              <a>Protected</a>
-            </Link>
+            <Link href="/protected">Protected</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/api-example">
-              <a>API</a>
-            </Link>
+            <Link href="/api-example">API</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/admin">
-              <a>Admin</a>
-            </Link>
+            <Link href="/admin">Admin</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/me">
-              <a>Me</a>
-            </Link>
+            <Link href="/me">Me</Link>
           </li>
         </ul>
       </nav>
