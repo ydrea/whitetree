@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { useDispatchApi } from "../redux/reduxHooks";
-import { update } from "../redux/userSlice";
+// import { useDispatchApi } from "../redux/reduxHooks";
+// import { update } from "../redux/userSlice";
 //
 const Login = () => {
   const intialValues = { email: "", password: "" };
   const [formValues, setFormValues] = useState(intialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const dispatch = useDispatchApi();
+  // const dispatch = useDispatchApi();
 
   const submit = () => {
     const token = [formValues.email, Date.now()];
     console.log(token);
     localStorage.setItem("userX", JSON.stringify(token));
-    dispatch(update(formValues));
+    // dispatch(update(formValues));
   };
 
   //input change handler

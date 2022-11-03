@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
+import { useFetchUser } from "../utils/authContext";
+//
 export async function getStaticProps() {
   const res = await fetch(`${process.env.BASE_URL}/producers`);
   const resProducers = await res.json();
@@ -10,8 +12,10 @@ export async function getStaticProps() {
 }
 //
 export default function Producers({ items }) {
+  const { user, loading } = useFetchUser();
+
   return (
-    <Layout>
+    <Layout user={user}>
       <div className={styles.container}>
         <main className={styles.main}>
           <p className={styles.description}>

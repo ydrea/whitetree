@@ -12,7 +12,6 @@ export async function getStaticProps() {
 }
 //
 export default function Home({ items }) {
-  // const dispatch = useDispatch()
   // {/* <img src={`${API_URL}`+`${i.attributes.main_img.data.attributes.name}`} /> */}
 
   return (

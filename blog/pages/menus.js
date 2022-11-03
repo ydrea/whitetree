@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
+import { useFetchUser } from "../utils/authContext";
+const { user, loading } = useFetchUser();
 //
 
 export async function getStaticProps() {
@@ -11,8 +13,9 @@ export async function getStaticProps() {
 }
 
 const menus = ({ items }) => {
+  const { user, loading } = useFetchUser();
   return (
-    <Layout>
+    <Layout user={user}>
       <div className={styles.container}>
         <main className={styles.main}>
           <p className={styles.description}>
