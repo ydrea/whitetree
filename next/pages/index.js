@@ -37,7 +37,8 @@ export default function Home({ items }) {
                   </a>
                 </Link>
               ))}
-
+            {/* footer
+             */}
             <a
               href="https://github.com/vercel/next.js/tree/canary/examples"
               className={styles.card}
