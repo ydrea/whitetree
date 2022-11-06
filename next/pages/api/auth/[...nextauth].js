@@ -1,5 +1,4 @@
 import NextAuth from "next-auth";
-import Auth0Provider from "next-auth/providers/auth0";
 import FacebookProvider from "next-auth/providers/facebook";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
@@ -45,11 +44,11 @@ export const authOptions = {
       clientId: process.env.TWITTER_CONSUMER_KEY,
       clientSecret: process.env.TWITTER_CONSUMER_SECRET,
     }),
-    Auth0Provider({
-      clientId: process.env.AUTH0_ID,
-      clientSecret: process.env.AUTH0_SECRET,
-      issuer: process.env.AUTH0_ISSUER,
-    }),
+    // Auth0Provider({
+    //   clientId: process.env.AUTH0_ID,
+    //   clientSecret: process.env.AUTH0_SECRET,
+    //   issuer: process.env.AUTH0_ISSUER,
+    // }),
   ],
   theme: {
     colorScheme: "light",
