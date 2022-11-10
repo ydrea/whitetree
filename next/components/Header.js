@@ -36,7 +36,7 @@ export default () => {
             <Link href="/account">
               {/* <img src="/user_avatar.png" alt={user.email} /> */}
             </Link>
-            <button className={styles.button} onClick={logoutUser}>
+            <button className={styles.buttonPrimary} onClick={logoutUser}>
               logout
             </button>
           </>
