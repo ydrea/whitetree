@@ -1,0 +1,37 @@
+{"user": {
+    "name": "Andrija Vranić",
+    "email": "andrija.vranic@gmail.com",
+    "image": "https://lh3.googleusercontent.com/a/ALm5wu3Vem9urqSmA90xbvmTjnC-831PXD0qxKsT06Mbrw=s96-c"
+  },
+  "expires": "2022-12-09T11:10:45.905Z"
+}
+
+{
+  "user": {
+    "name": "Andrija Vranic",
+    "email": "andrija.wrld@gmail.com",
+    "image": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10160276732999785&height=50&width=50&ext=1670583374&hash=AeQU1VIbe5v6Dgr6olM"
+  },
+  "expires": "2022-12-09T11:04:49.139Z"
+}
+
+{
+    "name": "Andrija Vranić",
+    "email": "andrija.vranic@gmail.com",
+    "picture": "https://lh3.googleusercontent.com/a/ALm5wu3Vem9urqSmA90xbvmTjnC-831PXD0qxKsT06Mbrw=s96-c",
+    "sub": "105422005973491269292",
+    "userRole": "admin",
+    "iat": 1667992245,
+    "exp": 1670584245,
+    "jti": "900de2de-7c1f-4830-a9e0-4c2cd0326043"
+  }
+{
+    "name": "Andrija Vranic",
+    "email": "andrija.wrld@gmail.com",
+    "picture": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10160276732999785&height=50&width=50&ext=1670583374&hash=AeQU1VIbe5v6Dgr6olM",
+    "sub": "10160276732999785",
+    "userRole": "admin",
+    "iat": 1667991879,
+    "exp": 1670583879,
+    "jti": "f7c96d5b-bf7c-4c7a-9258-90f555842c5f"
+  }

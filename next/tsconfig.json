@@ -27,7 +27,8 @@
     "pages/protected.js",
     "pages/server.js",
     "components/access-denied.tsx",
-    "pages/api/examples/jwt.ts"
+    "pages/api/examples/jwt.ts",
+    "pages/api/examples/session.ts"
   ],
   "exclude": ["node_modules"]
 }

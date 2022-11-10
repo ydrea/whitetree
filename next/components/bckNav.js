@@ -1,11 +1,13 @@
-import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { useContext, useState } from "react";
+import AuthContext from "../context/AuthContext";
 import styles from "../styles/header.module.css";
 //
 const Nav = () => {
-  const { data: session, status } = useSession();
-  console.log(session);
-  const loading = status === "loading";
+  // const { data: session, status } = useSession();
+  // console.log(session);
+  const [loading] = useState();
+  const { user, loginUser, logoutUser } = useContext(AuthContext);
   //
   return (
     <header>
@@ -15,10 +17,10 @@ const Nav = () => {
       <div className={styles.signedInStatus}>
         <p
           className={`nojs-show ${
-            !session && loading ? styles.loading : styles.loaded
+            !user && loading ? styles.loading : styles.loaded
           }`}
         >
-          {!session && (
+          {!user && (
             <>
               <span className={styles.notSignedInText}>
                 You are not signed in
@@ -28,32 +30,32 @@ const Nav = () => {
                 className={styles.buttonPrimary}
                 onClick={(e) => {
                   e.preventDefault();
-                  signIn();
+                  loginUser();
                 }}
               >
                 Sign in
               </a>
             </>
           )}
-          {session?.user && (
+          {user && (
             <>
-              {session.user.image && (
+              {user.image && (
                 <span
-                  style={{ backgroundImage: `url('${session.user.image}')` }}
+                  style={{ backgroundImage: `url('${user.image}')` }}
                   className={styles.avatar}
                 />
               )}
               <span className={styles.signedInText}>
                 <small>Signed in as</small>
                 <br />
-                <strong>{session.user.email ?? session.user.name}</strong>
+                <strong>{user.email ?? user.name}</strong>
               </span>
               <a
                 href={`/api/auth/signout`}
                 className={styles.button}
                 onClick={(e) => {
                   e.preventDefault();
-                  signOut();
+                  logoutUser();
                 }}
               >
                 Sign out

@@ -17,7 +17,6 @@
     "@strapi/strapi": "4.4.3",
     "better-sqlite3": "7.4.6",
     "koa2-ratelimit": "^1.1.2",
-    "strapi-google-auth": "^0.1.2",
     "strapi-stripe": "^2.5.1"
   },
   "author": {

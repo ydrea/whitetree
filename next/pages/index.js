@@ -1,21 +1,19 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
 //
 export async function getStaticProps() {
   const res = await fetch("http://localhost:1337/api/restaurants?populate=*");
   const restaurants = await res.json();
   const items = restaurants.data;
-  console.log(items);
+  // console.log(items);
   return { props: { items } };
 }
 //
 export default function Home({ items }) {
   // {/* <img src={`${API_URL}`+`${i.attributes.main_img.data.attributes.name}`} /> */}
-
   return (
-    <Layout>
+    <>
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
@@ -71,6 +69,6 @@ export default function Home({ items }) {
           </a>
         </footer>
       </div>
-    </Layout>
+    </>
   );
 }
