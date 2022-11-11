@@ -23,11 +23,19 @@ export const AuthProvider = (props) => {
 
   const logoutUser = async () => {
     try {
-      await magic.auth.logout();
+      await magic.user.logout();
       userSet(null);
+      router.push("/");
     } catch (error) {
-      console.log("grijeska");
+      console.log("logoutUser error", error);
     }
+  };
+
+  const getToken = async () => {
+    try {
+      const token = await magic.user.getIdToken();
+      return token;
+    } catch (error) {}
   };
 
   const persistSession = async () => {
@@ -43,20 +51,13 @@ export const AuthProvider = (props) => {
     } catch (error) {}
   };
 
-  const getToken = async () => {
-    try {
-      const token = await magic.user.getIdToken();
-      return token;
-    } catch (error) {}
-  };
-
   useEffect(() => {
     magic = new Magic(MAGIC_PUBLIC_KEY);
     persistSession();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loginUser, logoutUser }}>
+    <AuthContext.Provider value={{ user, loginUser, logoutUser, getToken }}>
       {props.children}
     </AuthContext.Provider>
   );

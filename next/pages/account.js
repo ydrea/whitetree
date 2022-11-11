@@ -15,7 +15,7 @@ export default function Account() {
       <Head>
         <title>account</title>
       </Head>
-      <Link href="#" onClick={logoutUser}>
+      <Link href="/" onClick={logoutUser}>
         <a> Log out</a>
       </Link>
     </div>
