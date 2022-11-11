@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 //
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.BASE_URL}/menus`);
+  const res = await fetch(`${process.env.BASE_URL}/restaurants`);
   const resMenuItems = await res.json();
   const items = resMenuItems.data;
   return { props: { items } };
@@ -24,7 +24,7 @@ const menus = ({ items }) => {
               <span>
                 {items &&
                   items.map((i) => (
-                    <Link href={`/menu/${i.id}`} key={i.id}>
+                    <Link href={`/restaurant/${i.id}`} key={i.id}>
                       <a className={styles.card}>
                         <h2>{i.attributes.name} &rArr;</h2>
                         {i.attributes.description}
@@ -40,4 +40,4 @@ const menus = ({ items }) => {
   );
 };
 
-export default menus;
+export default restaurants;

@@ -1,16 +1,8 @@
 import Head from "next/head";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
 //
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:1337/api/restaurants?populate=*");
-  const restaurants = await res.json();
-  const items = restaurants.data;
-  // console.log(items);
-  return { props: { items } };
-}
 //
-export default function Home({ items }) {
+export default function Home() {
   // {/* <img src={`${API_URL}`+`${i.attributes.main_img.data.attributes.name}`} /> */}
   return (
     <>
@@ -22,19 +14,17 @@ export default function Home({ items }) {
           <p className={styles.description}>
             {/* <img src='http://localhost:1337/uploads/logo_60e391feec.png'  
    styles={{ width: 300, height: 300 }} /> */}
-            Get started by editing{" "}
             <code className={styles.code}>pages/index.js</code>
           </p>
           <div className={styles.grid}>
-            {items &&
-              items.map((i) => (
-                <Link href={`/restaurant/${i.id}`} key={i.id}>
-                  <a className={styles.card}>
-                    <h2>{i.attributes.name} &rArr;</h2>
-                    {i.attributes.description}
-                  </a>
-                </Link>
-              ))}
+            {/* {items &&
+                items.map((i) => (
+                  <Link href={`/restaurant/${i.id}`} key={i.id}>
+                    <a className={styles.card}>
+                      <h2>{i.attributes.name} &rArr;</h2>
+                      {i.attributes.description}
+                    </a>
+                  </Link>
             {/* footer
              */}
             <a
