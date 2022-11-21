@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "producers",
+  "info": {
+    "name": "Producer"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "coordinate": {
+      "type": "json"
+    }
+  }
+}

@@ -1,43 +1,49 @@
+// import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import { twoDecimals } from "../utils/format";
+import { API_URL, fromImageToUrl } from "../utils/urls";
 //
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.BASE_URL}/restaurants`);
-  const resMenuItems = await res.json();
-  const items = resMenuItems.data;
-  return { props: { items } };
+  const res = await fetch(`${API_URL}/restaurants/`);
+  console.log(res);
+  const items = await res.json();
+  console.log(items);
+  return {
+    props: {
+      items,
+    },
+  };
 }
 
-const menus = ({ items }) => {
+//
+function restaurants({ items }) {
+  console.log(items);
   return (
-    <>
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <p className={styles.description}>
-            Get started by editing{" "}
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-
-          <div className={styles.grid}>
-            <div>
-              <span>
-                {items &&
-                  items.map((i) => (
-                    <Link href={`/restaurant/${i.id}`} key={i.id}>
-                      <a className={styles.card}>
-                        <h2>{i.attributes.name} &rArr;</h2>
-                        {i.attributes.description}
-                      </a>
-                    </Link>
-                  ))}
-              </span>
-            </div>
+    <div>
+      <h3>restaurants</h3>
+      <span>
+        {" "}
+        {items.map((i) => (
+          <div className={styles.product}>
+            <Link href={`/restaurants/${i.id}`}>
+              <a>
+                <div className={styles.product__Rows}>
+                  <div className={styles.product__ColImg}>
+                    <img src={fromImageToUrl(i.img_main)} />
+                  </div>
+                  <div className={styles.product__Col}>
+                    {i.name} &euro;{twoDecimals(i.price)}
+                  </div>
+                </div>
+              </a>
+            </Link>
           </div>
-        </main>
-      </div>
-    </>
+        ))}
+      </span>{" "}
+    </div>
   );
-};
+}
 
 export default restaurants;

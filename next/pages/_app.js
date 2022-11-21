@@ -1,13 +1,17 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { AuthProvider } from "../context/AuthContext";
 import "../styles/globals.css";
-//
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+
+import { AuthProvider } from "../context/AuthContext";
+
+function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
-      <Header />
-      <Component {...pageProps} />
-      {console.log(pageProps)}
+      <>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </>
     </AuthProvider>
   );
 }

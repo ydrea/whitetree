@@ -2,14 +2,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
-import styles from "../styles/header.module.css";
-import Login from "./Login";
+
+import styles from "../styles/Header.module.css";
 
 export default () => {
   const router = useRouter();
   const isHome = router.pathname === "/";
 
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const goBack = (event) => {
     event.preventDefault();
@@ -20,26 +20,64 @@ export default () => {
     <div className={styles.nav}>
       {!isHome && (
         <div className={styles.back}>
-          <Link href="#" onClick={goBack}>
+          <a href="#" onClick={goBack}>
             {"<"} Back{" "}
-          </Link>
+          </a>
         </div>
       )}
       <div className={styles.title}>
-        <Link href="/">Home</Link>
+        <Link href="/">
+          <a>
+            <img src="/glogo.svg" height="150" alt="logo" />
+            <h3 className={styles.h3}>WHITE TREE</h3>
+          </a>
+        </Link>
+      </div>
+
+      <div className={styles.title}>
+        <Link href="/products">
+          <a>
+            <h3 className={styles.h3}>products</h3>
+          </a>
+        </Link>
+      </div>
+
+      <div className={styles.title}>
+        <Link href="/restaurants">
+          <a>
+            <h3 className={styles.h3}>restaurants</h3>
+          </a>
+        </Link>
+      </div>
+
+      <div className={styles.title}>
+        <Link href="/producers">
+          <a>
+            <h3 className={styles.h3}>producers</h3>
+          </a>
+        </Link>
+      </div>
+
+      <div className={styles.title}>
+        <Link href="/menus">
+          <a>
+            <h3 className={styles.h3}>menus</h3>
+          </a>
+        </Link>
       </div>
 
       <div className={styles.auth}>
         {user ? (
-          <>
-            {" "}
-            <Link href="/account">{user.email}</Link>
-            <button className={styles.buttonPrimary} onClick={logoutUser}>
-              logout
-            </button>
-          </>
+          <Link href="/account">
+            <a>
+              account
+              <img src="/user_avatar.png" alt={user.email} />
+            </a>
+          </Link>
         ) : (
-          <Login />
+          <Link href="/login">
+            <a>Log In</a>
+          </Link>
         )}
       </div>
     </div>
