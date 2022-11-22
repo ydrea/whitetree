@@ -1,3 +1,16 @@
+.contain {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+.cnt {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
 .sprite {
     background: url("../public/VG/vg.svg") no-repeat;
     color: #000eee;

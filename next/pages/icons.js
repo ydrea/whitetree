@@ -10,8 +10,8 @@ function icons() {
   //   event.target.style.background = "";
   // }
   return (
-    <div>
-      <div>
+    <div className={styles.contain}>
+      <div className={styles.cnt}>
         vegan
         <span className={styles.icons}>
           <Image
@@ -24,7 +24,7 @@ function icons() {
         </span>
       </div>
 
-      <div>
+      <div className={styles.cnt}>
         vegetarian
         <span className={styles.icons}>
           <Image
@@ -37,7 +37,7 @@ function icons() {
         </span>
       </div>
 
-      <div>
+      <div className={styles.cnt}>
         keto
         <span className={styles.icons}>
           <Image
@@ -50,7 +50,7 @@ function icons() {
         </span>
       </div>
 
-      <div>
+      <div className={styles.cnt}>
         paleo
         <span className={styles.icons}>
           <Image
@@ -63,7 +63,7 @@ function icons() {
         </span>
       </div>
 
-      <div>
+      <div className={styles.cnt}>
         gluten-free
         <span className={styles.icons}>
           <Image
@@ -72,13 +72,12 @@ function icons() {
             gluten-free"
             width={58}
             height={58}
-            data-tip="
-            gluten-free"
+            data-tip="gluten-free"
           />
         </span>
       </div>
 
-      <div>
+      <div className={styles.cnt}>
         organic
         <span className={styles.icons}>
           <Image
@@ -91,7 +90,7 @@ function icons() {
         </span>
       </div>
 
-      <div>
+      <div className={styles.cnt}>
         affordable
         <span className={styles.icons}>
           <Image
@@ -104,7 +103,7 @@ function icons() {
         </span>
       </div>
 
-      <div>
+      <div className={styles.cnt}>
         locally sourced
         <span className={styles.icons}>
           <Image
