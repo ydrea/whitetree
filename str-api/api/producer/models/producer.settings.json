@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "producers",
   "info": {
-    "name": "Producer"
+    "name": "Producer",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -18,6 +19,17 @@
     },
     "coordinate": {
       "type": "json"
+    },
+    "img_main": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

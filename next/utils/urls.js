@@ -12,14 +12,14 @@ export const STRIPE_PK =
  * Provides a default as well
  * @param {any} image
  */
-export const fromImageToUrl = (image) => {
-  if (!image) {
+export const fromImageToUrl = (img_main) => {
+  if (!img_main) {
     return "/vercel.svg"; //Or default image here
   }
-  if (image.url.indexOf("/") === 0) {
+  if (img_main.url.indexOf("/") === 0) {
     //It's a relative url, add API URL
-    return `${API_URL}${image.url}`;
+    return `${API_URL}${img_main.url}`;
   }
 
-  return image.url;
+  return img_main.url;
 };

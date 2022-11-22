@@ -1,8 +1,7 @@
 import Head from "next/head";
-// import { faFontAwesome } from "@fortawesome/free-regular-svg-icons";
-// import {faEuro} from '@fortawesome/free-regular-svg-icons'
-
-export default function Home({ products }) {
+// import products from '../pages/products'
+//
+export default function Home() {
   return (
     <div>
       <Head>
@@ -12,6 +11,10 @@ export default function Home({ products }) {
           content="locally grown, organic & affordable meals"
         />
       </Head>
+      <products />
+      <producers />
+      <restaurants />
+      <menus />
     </div>
   );
 }
