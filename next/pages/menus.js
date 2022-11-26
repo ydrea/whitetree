@@ -1,5 +1,6 @@
 // import Head from "next/head";
 import Link from "next/link";
+import Form from "../components/Form";
 import styles from "../styles/Home.module.css";
 import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
@@ -42,6 +43,7 @@ function menus({ items }) {
           </div>
         ))}
       </span>{" "}
+      <Form />
     </div>
   );
 }

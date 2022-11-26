@@ -11,7 +11,3 @@
     flex-direction: column;
     padding: 20px;
 }
-.sprite {
-    background: url("../public/VG/vg.svg") no-repeat;
-    color: #000eee;
-}
