@@ -59,11 +59,12 @@ export default () => {
 
       <h3>Your Orders</h3>
       {loading && <p>Orders are Loading</p>}
-      {/* {orders.map(order => (
-                <div key={order.id}>
-                    {new Date(order.created_at).toLocaleDateString( 'en-EN' )} {order.product.name} ${order.total} {order.status}
-                </div>
-            ))} */}
+      {orders.map((order) => (
+        <div key={order.id}>
+          {new Date(order.created_at).toLocaleDateString("en-EN")}{" "}
+          {order.product.name} ${order.total} {order.status}
+        </div>
+      ))}
       <hr />
       <p>Logged in as {user.email}</p>
       <p>

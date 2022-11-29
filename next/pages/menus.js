@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 //
-
+//
 export async function getStaticProps() {
   const res = await fetch(`${API_URL}/menus/`);
   console.log(res);
@@ -17,7 +17,6 @@ export async function getStaticProps() {
     },
   };
 }
-
 //
 function menus({ items }) {
   console.log(items);
