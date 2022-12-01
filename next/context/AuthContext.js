@@ -2,6 +2,7 @@ import { Magic } from "magic-sdk";
 import { useRouter } from "next/router";
 import { createContext, useEffect, useState } from "react";
 import { MAGIC_PUBLIC_KEY } from "../utils/urls";
+//import {createContext, useContextSelector} from 'use-context-selector'
 
 const AuthContext = createContext();
 
@@ -10,7 +11,7 @@ let magic;
 export const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
   const router = useRouter();
-
+  // const [jwt, jwtSet] = useState();
   /**
    * Log the user in
    * @param {string} email
@@ -51,6 +52,7 @@ export const AuthProvider = (props) => {
         //Add this just for test
         const token = await getToken();
         console.log("checkUserLoggedIn token", token);
+        localStorage.setItem("access", token);
       }
     } catch (err) {
       console.log(err);

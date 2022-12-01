@@ -1,84 +1,65 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/AuthContext";
+// import useFetch from "../hooks/useFetch";
+
 import styles from "../styles/Form.module.css";
 import { API_URL } from "../utils/urls";
 //
 function Form() {
-  const [name, nameSet] = useState("");
+  const [ime, imeSet] = useState("");
   const [description, descriptionSet] = useState("");
-
   const { user, getToken } = useContext(AuthContext);
-  console.log(user);
+  const [loading, setLoading] = useState(false);
+  //
+  const url = API_URL + "/menus";
+  //
+  useEffect(() => {
+    console.log(user);
+  }, []);
 
-  //update with a custom hook
-  const useMenus = (user, getToken) => {
-    const [loading, loadingSet] = useState(false);
-    const [formData, formDataSet] = useState({
-      name: name,
-      description: description,
-    });
-    console.log(formData);
-
-    useEffect(() => {
-      const postIt = async () => {
-        loadingSet(true);
-        if (user) {
-          try {
-            const jwt = await getToken();
-            const add = await fetch(`${API_URL}/menus`, {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${jwt}`,
-                Accept: "application/json",
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
-            });
-            const data = await add.json();
-            formDataSet(data);
-          } catch (error) {
-            formDataSet({});
-          }
-        }
-        loadingSet(false);
-      };
-      postIt();
-    }, [user]);
-    return formData, loading;
+  const postMenus = async () => {
+    if (user) {
+      // e.preventDefault();
+      setLoading(true);
+      console.log(user);
+      try {
+        const jwt = await getToken();
+        console.log(jwt);
+        const data = { ime: ime, description: description };
+        const add = await fetch(url, {
+          // mode: "no-cors",
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer` + localStorage.getItem("access"),
+          },
+          body: JSON.stringify(data),
+        });
+        const resUl = await add.json();
+        console.log(resUl);
+      } catch (err) {
+        console.log("nie", err); // postMenus([]);
+      }
+      setLoading(false);
+    }
   };
-  // //
-  // async function handleSubmit() {
-  //   const formData = { name: name, description: description };
-  //   console.log(formData);
-  //   //prettier-ignore
-  //   // const token = await getToken()
-  //   // console.log(token);
-  //   const add = await fetch(`${API_URL}/menus`, {
-  //     method: "POST",
-  //     headers: {
-  //       Authorisation: `Bearer ${token}`,
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData),
-  //   });
-  //   const res = await add.json();
-  //   console.log(res);
-  // }
+  // }, [user]);
+
   return (
     <div className={styles.contain}>
-      <form onSubmit={useMenus}>
+      <form onSubmit={() => postMenus()}>
         <input
           type="text"
-          value={name}
-          onChange={(e) => nameSet(e.target.value)}
+          value={ime}
+          onChange={(e) => imeSet(e.target.value)}
         />
         <input
           type="text"
           value={description}
           onChange={(e) => descriptionSet(e.target.value)}
         />
-        <input type="submit" value="submit" />
+        <input onClick={console.log("eee")} type="submit" value="submit" />
       </form>
     </div>
   );

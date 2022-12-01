@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { API_URL } from "../utils/urls";
 
-const useOrders = (user, getToken) => {
+const useToken = (user, getToken) => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   //
@@ -36,8 +36,7 @@ const useOrders = (user, getToken) => {
 
 export default () => {
   const { user, logoutUser, getToken } = useContext(AuthContext);
-
-  const { orders, loading } = useOrders(user, getToken);
+  const { orders, loading } = useToken(user, getToken);
 
   if (!user) {
     return (
@@ -54,11 +53,14 @@ export default () => {
     <div>
       <Head>
         <title>Your Account</title>
-        <meta name="description" content="Your orders will be shown here" />
+        <meta
+          name="description"
+          content="Your login status will be shown here"
+        />
       </Head>
       <h2>Account Page</h2>
 
-      <h3>Your Orders</h3>
+      <h3>Your Status</h3>
       {loading && <p>Orders are Loading</p>}
       {orders.map((order) => (
         <div key={order.id}>

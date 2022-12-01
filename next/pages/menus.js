@@ -6,7 +6,7 @@ import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 //
 //
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`${API_URL}/menus/`);
   console.log(res);
   const items = await res.json();
@@ -26,7 +26,7 @@ function menus({ items }) {
       <span>
         {" "}
         {items.map((i) => (
-          <div className={styles.product}>
+          <div className={styles.product} key={i.id}>
             <Link href={`/menus/${i.id}`}>
               <a>
                 <div className={styles.product__Rows}>
@@ -34,7 +34,7 @@ function menus({ items }) {
                     <img src={fromImageToUrl(i.img_main)} />
                   </div>
                   <div className={styles.product__Col}>
-                    {i.name} &euro;{twoDecimals(i.price)}
+                    {i.ime} &euro;{twoDecimals(i.price)}
                   </div>
                 </div>
               </a>
@@ -42,6 +42,7 @@ function menus({ items }) {
           </div>
         ))}
       </span>{" "}
+      {/* <Fetched /> */}
       <Form />
     </div>
   );
