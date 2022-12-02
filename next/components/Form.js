@@ -59,7 +59,7 @@ function Form() {
           value={description}
           onChange={(e) => descriptionSet(e.target.value)}
         />
-        <input onClick={console.log("eee")} type="submit" value="submit" />
+        <input type="submit" value="submit" />
       </form>
     </div>
   );

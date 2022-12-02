@@ -1,24 +1,19 @@
-import { Magic } from "magic-sdk";
 import { useRouter } from "next/router";
 import { createContext, useEffect, useState } from "react";
-import { MAGIC_PUBLIC_KEY } from "../utils/urls";
 //import {createContext, useContextSelector} from 'use-context-selector'
 
 const AuthContext = createContext();
 
-let magic;
-
 export const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
   const router = useRouter();
-  // const [jwt, jwtSet] = useState();
   /**
    * Log the user in
    * @param {string} email
    */
   const loginUser = async (email) => {
     try {
-      await magic.auth.loginWithMagicLink({ email });
+      await login({ email });
       setUser({ email });
       router.push("/");
     } catch (err) {
@@ -31,7 +26,7 @@ export const AuthProvider = (props) => {
    */
   const logoutUser = async () => {
     try {
-      await magic.user.logout();
+      await logout();
       setUser(null);
       router.push("/");
     } catch (err) {
@@ -44,10 +39,10 @@ export const AuthProvider = (props) => {
    */
   const checkUserLoggedIn = async () => {
     try {
-      const isLoggedIn = await magic.user.isLoggedIn();
+      // const isLoggedIn = await magic.user.isLoggedIn();
 
       if (isLoggedIn) {
-        const { email } = await magic.user.getMetadata();
+        // const { email } = await magic.user.getMetadata();
         setUser({ email });
         //Add this just for test
         const token = await getToken();
@@ -60,8 +55,6 @@ export const AuthProvider = (props) => {
   };
 
   /**
-   * Retrieve Magic Issued Bearer Token
-   * This allows User to make authenticated requests
    */
   const getToken = async () => {
     try {
@@ -75,11 +68,7 @@ export const AuthProvider = (props) => {
   /**
    * Reload user login on app refresh
    */
-  useEffect(() => {
-    magic = new Magic(MAGIC_PUBLIC_KEY);
-
-    checkUserLoggedIn();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <AuthContext.Provider value={{ user, logoutUser, loginUser, getToken }}>
