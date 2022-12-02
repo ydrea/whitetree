@@ -43,6 +43,14 @@ export default () => {
         </div>
 
         <div className={styles.title}>
+          <Link href="/medos">
+            <a>
+              <h3 className={styles.protected}>medos</h3>
+            </a>
+          </Link>
+        </div>
+
+        <div className={styles.title}>
           <Link href="/products">
             <a>
               <h3 className={styles.h3}>products</h3>

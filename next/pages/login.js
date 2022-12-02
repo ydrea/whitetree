@@ -1,39 +1,66 @@
 import Head from "next/head";
-import { useContext, useState } from "react";
-import AuthContext from "../context/AuthContext";
-import styles from '../styles/Login.module.css'
-
+import { useState } from "react";
+// import AuthContext from "../context/AuthContext";
+import Router from "next/router";
+import { setCookie } from "nookies";
+import styles from "../styles/Login.module.css";
+//
 export default function Login() {
-  const [input, setInput] = useState("");
-  const { loginUser } = useContext(AuthContext);
+  const [email, emailSet] = useState("");
+  const [pass, passSet] = useState("");
+  // const { loginUser } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    loginUser(input)
-  }
-  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const logINfo = {
+      identifier: email,
+      password: pass,
+    };
+    //
+    const login = await fetch(`http://localhost:1337/auth/local`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(logINfo),
+    });
+    const loginRes = await login.json();
+    //cookie
+    setCookie(null, "jwt", loginRes.jwt, {
+      maxAge: 60 * 60 * 24 * 365,
+      path: "/",
+    });
+    Router.push("/");
+  };
+
   return (
     <div>
       <Head>
         <title>Login</title>
-        <meta
-          name="description"
-          content="Login here to be able to purchase"
-        />
+        <meta name="description" content="Login here to be able to purchase" />
       </Head>
 
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           className={styles.input}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          value={email}
+          onChange={(e) => emailSet(e.target.value)}
           type="email"
           placeholder="Email address..."
         />
-        <button className={styles.button} type="submit">Log In</button>
+        <input
+          className={styles.input}
+          value={pass}
+          onChange={(e) => passSet(e.target.value)}
+          type="password"
+          placeholder="Password..."
+        />
+        <button className={styles.button} type="submit">
+          Log In
+        </button>
       </form>
-
     </div>
   );
 }

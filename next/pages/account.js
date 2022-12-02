@@ -1,19 +1,22 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
-import AuthContext from "../context/AuthContext";
+import { useEffect, useState } from "react";
+// import AuthContext from "../context/AuthContext";
+import { parseCookies } from "nookies";
 import { API_URL } from "../utils/urls";
 
-const useOrders = (user, getToken) => {
+//
+const useOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
+  const user = parseCookies(ctx).jwt;
   //
   useEffect(() => {
     const fetchOrders = async () => {
       setLoading(true);
       if (user) {
         try {
-          const token = await getToken();
+          const token = user;
           const orderRes = await fetch(`${API_URL}/orders`, {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -35,9 +38,9 @@ const useOrders = (user, getToken) => {
 };
 
 export default () => {
-  const { user, logoutUser, getToken } = useContext(AuthContext);
+  // const { user, logoutUser, getToken } = useContext(AuthContext);
 
-  const { orders, loading } = useOrders(user, getToken);
+  const { orders, loading } = useOrders();
 
   if (!user) {
     return (
