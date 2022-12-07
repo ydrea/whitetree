@@ -25,13 +25,13 @@
       "type": "string"
     },
     "product": {
-      "model": "product",
-      "via": "orders"
+      "via": "orders",
+      "model": "product"
     },
     "user": {
+      "via": "orders",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "orders"
+      "model": "user"
     }
   }
 }

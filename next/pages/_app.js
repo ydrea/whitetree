@@ -1,4 +1,5 @@
 import { Router } from "next/router";
+import { parseCookies } from "nookies";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { AuthProvider } from "../context/AuthContext";
@@ -13,9 +14,10 @@ function reDirect(ctx, location) {
   }
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, ctx }) {
   //
-  // const jwt = false;
+  const jwt = parseCookies(ctx).jwt;
+  console.log(jwt);
   //
   return (
     <AuthProvider>

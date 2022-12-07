@@ -30,6 +30,14 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "products": {
+      "collection": "product"
+    },
+    "user": {
+      "via": "producer",
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

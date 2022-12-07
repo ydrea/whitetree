@@ -1,5 +1,5 @@
-import { Router } from "next/router";
-import "../styles/globals.css";
+// import { Router } from "next/router";
+// import "../styles/globals.css";
 
 function reDirect(ctx, location) {
   if (ctx.req) {

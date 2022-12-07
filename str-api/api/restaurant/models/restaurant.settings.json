@@ -33,6 +33,15 @@
     },
     "address": {
       "type": "string"
+    },
+    "menus": {
+      "collection": "menu"
+    },
+    "products": {
+      "collection": "product"
+    },
+    "producers": {
+      "collection": "producer"
     }
   }
 }

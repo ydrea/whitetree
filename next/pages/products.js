@@ -26,7 +26,7 @@ function products({ items }) {
       <span>
         {" "}
         {items.map((i) => (
-          <div className={styles.product}>
+          <div className={styles.product} key={i.id}>
             <Link href={`/products/${i.id}`}>
               <a>
                 <div className={styles.product__Rows}>

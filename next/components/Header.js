@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+// import { parseCookies } from "nookies";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
-
 import styles from "../styles/Header.module.css";
 
 export default () => {

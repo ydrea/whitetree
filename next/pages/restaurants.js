@@ -5,7 +5,8 @@ import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 //
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
+  console.log(context);
   const res = await fetch(`${API_URL}/restaurants/`);
   console.log(res);
   const items = await res.json();
@@ -26,7 +27,7 @@ function restaurants({ items }) {
       <span>
         {" "}
         {items.map((i) => (
-          <div className={styles.product}>
+          <div className={styles.product} key={i.id}>
             <Link href={`/restaurants/${i.id}`}>
               <a>
                 <div className={styles.product__Rows}>

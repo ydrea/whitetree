@@ -60,8 +60,18 @@
       "configurable": false
     },
     "orders": {
-      "via": "user",
-      "collection": "order"
+      "collection": "order",
+      "via": "user"
+    },
+    "restaurants": {
+      "collection": "restaurant"
+    },
+    "menus": {
+      "collection": "menu"
+    },
+    "producer": {
+      "model": "producer",
+      "via": "user"
     }
   }
 }

@@ -1,16 +1,17 @@
 // import Head from "next/head";
 import Link from "next/link";
+import { parseCookies } from "nookies";
 import Form from "../components/Form";
 import styles from "../styles/Home.module.css";
 import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 //
 //
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  console.log(context);
+
   const res = await fetch(`${API_URL}/menus/`);
-  console.log(res);
   const items = await res.json();
-  console.log(items);
   return {
     props: {
       items,
@@ -18,8 +19,10 @@ export async function getServerSideProps() {
   };
 }
 //
-function menus({ items }) {
-  console.log(items);
+function menus({ items, context }) {
+  const jwt = parseCookies(context).jwt;
+  const user = parseCookies(context).email;
+  console.log(context, "user", user);
   return (
     <div>
       <h3>menus</h3>
@@ -43,7 +46,7 @@ function menus({ items }) {
         ))}
       </span>{" "}
       {/* <Fetched /> */}
-      <Form />
+      <Form jwt={jwt} />
     </div>
   );
 }

@@ -28,8 +28,8 @@
       "plugin": "upload",
       "required": false
     },
-    "slug": {
-      "type": "uid"
+    "products": {
+      "collection": "product"
     }
   }
 }
