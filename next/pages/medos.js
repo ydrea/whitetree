@@ -1,13 +1,19 @@
+import { parseCookies } from "nookies";
 import Form from "../components/Form";
 import { API_URL } from "../utils/urls";
 //
 //
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   // //
+
+  const { params } = context;
+  console.log("PARAMS:", params);
   //
+  const jwt = parseCookies(context).jwt;
+
   const res = await fetch(`${API_URL}/medos/`, {
     headers: {
-      Authorization: `Bearer ${loginRes.jwt}`,
+      Authorization: `Bearer ${jwt}`,
     },
   });
   console.log(res);

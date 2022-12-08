@@ -11,7 +11,7 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "ime": {
+    "name": {
       "type": "string"
     },
     "description": {
@@ -30,6 +30,12 @@
     },
     "products": {
       "collection": "product"
+    },
+    "icons": {
+      "collection": "icons"
+    },
+    "price": {
+      "type": "integer"
     }
   }
 }

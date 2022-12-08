@@ -3,15 +3,19 @@ import Link from "next/link";
 import { parseCookies } from "nookies";
 import Form from "../components/Form";
 import styles from "../styles/Home.module.css";
-import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 //
 //
 export async function getServerSideProps(context) {
-  console.log(context);
-
-  const res = await fetch(`${API_URL}/menus/`);
+  // console.log(context);
+  const { req } = context;
+  console.log("REQ:", req);
+  console.log("RES:", req.cookies);
+  const userid = Object.keys(req.cookies);
+  console.log(userid[3]);
+  const res = await fetch(`${API_URL}/menus`);
   const items = await res.json();
+  // console.log(items);
   return {
     props: {
       items,
@@ -21,8 +25,8 @@ export async function getServerSideProps(context) {
 //
 function menus({ items, context }) {
   const jwt = parseCookies(context).jwt;
-  const user = parseCookies(context).email;
-  console.log(context, "user", user);
+  // const user = parseCookies(context).email;
+  // console.log(context, "user", user);
   return (
     <div>
       <h3>menus</h3>
@@ -37,7 +41,10 @@ function menus({ items, context }) {
                     <img src={fromImageToUrl(i.img_main)} />
                   </div>
                   <div className={styles.product__Col}>
-                    {i.ime} &euro;{twoDecimals(i.price)}
+                    <p>{i.name} </p>
+                    <p>{i.description}</p>
+                    {console.log(i.icons)}
+                    {i.icons.map((ii) => ii.icon.name)}
                   </div>
                 </div>
               </a>
@@ -45,7 +52,6 @@ function menus({ items, context }) {
           </div>
         ))}
       </span>{" "}
-      {/* <Fetched /> */}
       <Form jwt={jwt} />
     </div>
   );

@@ -1,5 +1,4 @@
 import Head from "next/head";
-// import products from '../pages/products'
 //
 export default function Home() {
   return (
@@ -11,10 +10,10 @@ export default function Home() {
           content="locally grown, organic & affordable meals"
         />
       </Head>
-      <products />
+      {/* <products />
       <producers />
       <restaurants />
-      <menus />
+      <menus /> */}
     </div>
   );
 }

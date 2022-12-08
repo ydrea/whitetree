@@ -6,7 +6,7 @@ import { API_URL, fromImageToUrl } from "../utils/urls";
 //
 
 export async function getServerSideProps(context) {
-  console.log(context);
+  // console.log(context);
   const res = await fetch(`${API_URL}/restaurants/`);
   console.log(res);
   const items = await res.json();
