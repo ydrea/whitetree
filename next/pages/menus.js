@@ -4,7 +4,7 @@ import { parseCookies } from "nookies";
 import Form from "../components/Form";
 import styles from "../styles/Home.module.css";
 import { API_URL, fromImageToUrl } from "../utils/urls";
-//
+
 //
 export async function getServerSideProps(context) {
   // console.log(context);

@@ -64,7 +64,7 @@ function icons() {
       </div>
 
       <div className={styles.cnt}>
-        gluten-free
+        gluten-
         <span className={styles.icons}>
           <Image
             src="/GF/gf.svg"
@@ -104,11 +104,11 @@ function icons() {
       </div>
 
       <div className={styles.cnt}>
-        locally sourced
+        local
         <span className={styles.icons}>
           <Image
             src="/LS/ls.svg"
-            alt="locally sourced"
+            alt="local"
             width={58}
             height={58}
             data-tip="locally sourced"

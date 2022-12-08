@@ -25,11 +25,8 @@ export default function Login() {
     });
     const loginRes = await login.json();
 
-    // useEffect(() => {
-    //   console.log(loginRes);
-    // });
     // //cookie
-    setCookie(null, `jwt`, loginRes.jwt, {
+    setCookie(null, `jwt${email}`, loginRes.jwt, {
       maxAge: 60 * 60 * 24 * 365,
       path: "/",
     });
