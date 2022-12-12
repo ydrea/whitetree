@@ -1,22 +1,38 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-// import AuthContext from "../context/AuthContext";
 import { parseCookies } from "nookies";
+import { useEffect, useState } from "react";
+import { logoutUser } from "../utils/format";
 import { API_URL } from "../utils/urls";
 
+export async function getServerSideProps(context) {
+  // console.log(context);
+  const { req } = context;
+  console.log("REQ:", req);
+  console.log("RES:", req.cookies);
+  const user = Object.keys(req.cookies);
+  const email = user[5];
+  console.log("Acc", user, email);
+
+  return {
+    props: {
+      user,
+      email,
+    },
+  };
+}
 //
-const useOrders = () => {
+const useOrders = (context, user) => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
-  const user = parseCookies(ctx).jwt;
+  const jwt = parseCookies(context).jwt;
   //
   useEffect(() => {
     const fetchOrders = async () => {
       setLoading(true);
       if (user) {
         try {
-          const token = user;
+          const token = jwt;
           const orderRes = await fetch(`${API_URL}/orders`, {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -32,16 +48,19 @@ const useOrders = () => {
     };
 
     fetchOrders();
-  }, [user]);
+  }, []);
 
   return { orders, loading };
 };
 
-export default () => {
-  // const { user, logoutUser, getToken } = useContext(AuthContext);
-
+export default ({ user, email }) => {
   const { orders, loading } = useOrders();
+  // //
+  // const logoutUser = () => {
+  //   console.log(context, "jwt");
+  // };
 
+  //
   if (!user) {
     return (
       <div>
@@ -70,7 +89,7 @@ export default () => {
         </div>
       ))}
       <hr />
-      <p>Logged in as {user.email}</p>
+      <p>Logged in as {email}</p>
       <p>
         <a href="#" onClick={logoutUser}>
           Logout

@@ -4,6 +4,8 @@ import { setCookie } from "nookies";
 import { useState } from "react";
 import styles from "../styles/Login.module.css";
 //
+
+//
 export default function Login() {
   const [email, emailSet] = useState("");
   const [pass, passSet] = useState("");
@@ -24,9 +26,9 @@ export default function Login() {
       body: JSON.stringify(logINfo),
     });
     const loginRes = await login.json();
-
+    console.log(loginRes);
     // //cookie
-    setCookie(null, `jwt${email}`, loginRes.jwt, {
+    setCookie(null, `${email}`, loginRes.jwt, {
       maxAge: 60 * 60 * 24 * 365,
       path: "/",
     });

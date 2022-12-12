@@ -13,10 +13,10 @@ import "../styles/globals.css";
 //   }
 // }
 
-function MyApp({ Component, pageProps, ctx }) {
+function MyApp({ Component, pageProps, context }) {
   //
-  console.log(ctx);
-  const jwt = parseCookies(ctx).jwt;
+  console.log(context);
+  const jwt = parseCookies(context).jwt;
   console.log(jwt);
   //
   return (

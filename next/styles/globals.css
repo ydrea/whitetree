@@ -1,6 +1,9 @@
+*{
+  box-sizing: border-box;
+}
+
 html{
-  background: linear-gradient(to bottom, olive, rgba(233, 248, 61, 0.6)) 
- 
+  background: linear-gradient(to bottom, olive, rgba(233, 248, 61, 0.6));
 }
 
 body { 
@@ -11,7 +14,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   max-width: 85%;
-  /* height: 140%; */
+  min-height: 100%;
  
   padding: 42px 24px;
 }
@@ -32,11 +35,12 @@ img {
 footer {
   text-align: center;
   margin-top: auto;
+  padding-top: 176px;
 }
 
 footer a{
   text-decoration: overline underline;
-  ;
+ 
 }
 
 h1 {

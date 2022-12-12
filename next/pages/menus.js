@@ -9,8 +9,8 @@ import { API_URL, fromImageToUrl } from "../utils/urls";
 export async function getServerSideProps(context) {
   // console.log(context);
   const { req } = context;
-  console.log("REQ:", req);
-  console.log("RES:", req.cookies);
+  // console.log("REQ:", req);
+  // console.log("RES:", req.cookies);
   const userid = Object.keys(req.cookies);
   console.log(userid[3]);
   const res = await fetch(`${API_URL}/menus`);
@@ -25,8 +25,6 @@ export async function getServerSideProps(context) {
 //
 function menus({ items, context }) {
   const jwt = parseCookies(context).jwt;
-  // const user = parseCookies(context).email;
-  // console.log(context, "user", user);
   return (
     <div>
       <h3>menus</h3>

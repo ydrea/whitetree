@@ -1,15 +1,35 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 // import { parseCookies } from "nookies";
-import { useContext } from "react";
-import AuthContext from "../context/AuthContext";
 import styles from "../styles/Header.module.css";
 
-export default () => {
+export async function getServerSideProps(context) {
+  const { req } = context;
+  const user = Object.keys(req.cookies);
+  console.log(user[3]);
+  return {
+    props: {
+      user,
+    },
+  };
+}
+
+export default (user) => {
   const router = useRouter();
   const isHome = router.pathname === "/";
 
-  const { user } = useContext(AuthContext);
+  /**
+   * Log the user out
+   */
+  const logoutUser = async () => {
+    try {
+      await destroyCookie("jwt");
+      setUser(null);
+      router.push("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const goBack = (event) => {
     event.preventDefault();
@@ -84,12 +104,21 @@ export default () => {
       </div>
       <div className={styles.auth}>
         {user ? (
-          <Link href="/account">
-            <a>
-              account
-              <img src="/user_avatar.png" alt={user.email} />
-            </a>
-          </Link>
+          <>
+            <Link href="/account">
+              <a>
+                account
+                <img src="/user_avatar.png" alt={user.email} />
+              </a>
+            </Link>
+
+            <p>Logged in as {user}</p>
+            <p>
+              <a href="#" onClick={logoutUser}>
+                Logout
+              </a>
+            </p>
+          </>
         ) : (
           <Link href="/login">
             <a>Log In</a>

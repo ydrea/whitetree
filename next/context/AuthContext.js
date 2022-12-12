@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 //import {createContext, useContextSelector} from 'use-context-selector'
 
 const AuthContext = createContext();
@@ -7,32 +7,6 @@ const AuthContext = createContext();
 export const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
   const router = useRouter();
-  /**
-   * Log the user in
-   * @param {string} email
-   */
-  const loginUser = async (email) => {
-    try {
-      await login({ email });
-      setUser({ email });
-      router.push("/");
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  /**
-   * Log the user out
-   */
-  const logoutUser = async () => {
-    try {
-      await logout();
-      setUser(null);
-      router.push("/");
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   /**
    * If user is logged in, get data and display it
@@ -67,11 +41,11 @@ export const AuthProvider = (props) => {
 
   /**
    * Reload user login on app refresh
-   */
-  useEffect(() => {}, []);
+  //  */
+  // useEffect(() => {}, []);
 
   return (
-    <AuthContext.Provider value={{ user, logoutUser, loginUser, getToken }}>
+    <AuthContext.Provider value={{ user, getToken }}>
       {props.children}
     </AuthContext.Provider>
   );
