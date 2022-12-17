@@ -1,33 +1,57 @@
 import { parseCookies } from "nookies";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { AuthProvider } from "../context/AuthContext";
 import "../styles/globals.css";
+import { HeaderContextWrapper } from "../context/HeaderContext";
 
-// function reDirect(ctx, location) {
-//   if (ctx.req) {
-//     ctx.res.writeHead(302, { Location: location });
-//     ctx.res.end();
-//   } else {
-//     Router.push(location);
-//   }
-// }
+//
 
-function MyApp({ Component, pageProps, context }) {
+function MyApp({ Component, pageProps }) {
   //
-  console.log(context);
-  const jwt = parseCookies(context).jwt;
-  console.log(jwt);
-  //
+  console.log(pageProps);
+
   return (
-    <AuthProvider>
-      <>
+    // <NavProvider navigation={navigation}>
+    <>
+      <HeaderContextWrapper>
         <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </>
-    </AuthProvider>
+      </HeaderContextWrapper>
+      <Component {...pageProps} />
+      <Footer />
+    </>
+    // </NavProvider>
   );
 }
+
+function redirectUser(ctx, location) {
+  if (ctx.req) {
+    ctx.res.writeHead(302, { Location: location });
+    ctx.res.end();
+  } else {
+    Router.push(location);
+  }
+}
+
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+  let pageProps = {};
+  const jwt = parseCookies(ctx).jwt;
+
+  // const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`);
+  // const navigation = await res.json();
+
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+
+  if (!jwt) {
+    if (ctx.pathname === "/icons") {
+      redirectUser(ctx, "/login");
+    }
+  }
+
+  return {
+    pageProps,
+  };
+};
 
 export default MyApp;

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import AuthContext from "../context/AuthContext";
+// import AuthContext from "../context/NavContext";
 // import {parseCookies} from 'nookies'
 
 // import useFetch from "../hooks/useFetch";
@@ -10,14 +10,14 @@ import { API_URL } from "../utils/urls";
 function Form() {
   const [ime, imeSet] = useState("");
   const [description, descriptionSet] = useState("");
-  const { user, getToken } = useContext(AuthContext);
+  // const { user, getToken } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   //
   const url = API_URL + "/menus";
-  //
-  useEffect(() => {
-    console.log(user);
-  }, []);
+  // //
+  // useEffect(() => {
+  //   console.log(user);
+  // }, []);
 
   const postMenus = async () => {
     if (user) {

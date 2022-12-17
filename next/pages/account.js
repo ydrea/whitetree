@@ -1,67 +1,23 @@
 import Head from "next/head";
 import Link from "next/link";
-import { parseCookies } from "nookies";
-import { useEffect, useState } from "react";
-import { logoutUser } from "../utils/format";
-import { API_URL } from "../utils/urls";
+import { destroyCookie, parseCookies } from "nookies";
+import { useState } from "react";
+import { parseJwt } from "../utils/parseJwt";
+import { useOrders } from "../utils/useOrders";
+// //
 
-export async function getServerSideProps(context) {
-  // console.log(context);
-  const { req } = context;
-  console.log("REQ:", req);
-  console.log("RES:", req.cookies);
-  const user = Object.keys(req.cookies);
-  const email = user[5];
-  console.log("Acc", user, email);
-
-  return {
-    props: {
-      user,
-      email,
-    },
-  };
-}
-//
-const useOrders = (context, user) => {
-  const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const jwt = parseCookies(context).jwt;
-  //
-  useEffect(() => {
-    const fetchOrders = async () => {
-      setLoading(true);
-      if (user) {
-        try {
-          const token = jwt;
-          const orderRes = await fetch(`${API_URL}/orders`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          const data = await orderRes.json();
-          setOrders(data);
-        } catch (err) {
-          setOrders([]);
-        }
-      }
-      setLoading(false);
-    };
-
-    fetchOrders();
-  }, []);
-
-  return { orders, loading };
-};
-
-export default ({ user, email }) => {
+export default function account({ userId, jwt }) {
   const { orders, loading } = useOrders();
-  // //
-  // const logoutUser = () => {
-  //   console.log(context, "jwt");
-  // };
+  const [, userIdSet] = useState();
+  //
+
+  const logoutUser = () => {
+    destroyCookie(context, "jwt");
+    userIdSet(null);
+  };
 
   //
-  if (!user) {
+  if (!userId) {
     return (
       <div>
         <p>Please Login or Register before accessing this page</p>
@@ -89,7 +45,7 @@ export default ({ user, email }) => {
         </div>
       ))}
       <hr />
-      <p>Logged in as {email}</p>
+      <p>Logged in as {userId}</p>
       <p>
         <a href="#" onClick={logoutUser}>
           Logout
@@ -97,4 +53,18 @@ export default ({ user, email }) => {
       </p>
     </div>
   );
-};
+}
+export async function getServerSideProps(context) {
+  const jwt = parseCookies(context).jwt || null;
+  if (jwt) {
+    const user = parseJwt(jwt);
+    const userId = user.id;
+    return {
+      props: { jwt, userId },
+    };
+  } else {
+    return {
+      props: {},
+    };
+  }
+}

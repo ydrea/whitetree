@@ -2,34 +2,28 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 // import { parseCookies } from "nookies";
 import styles from "../styles/Header.module.css";
+import { useContext } from "react";
+import { HeaderContext } from "../context/HeaderContext";
 
-export async function getServerSideProps(context) {
-  const { req } = context;
-  const user = Object.keys(req.cookies);
-  console.log(user[3]);
-  return {
-    props: {
-      user,
-    },
-  };
-}
+// // TO DO >> contextualize Header
+// import NavContext from "../context/NavContext";
+// import { useContext } from "react";
 
-export default (user) => {
+// export async function getServerSideProps(context) {
+//   const { req } = context;
+//   const user = Object.keys(req.cookies);
+//   console.log(user[3]);
+//   return {
+//     props: {
+//       user,
+//     },
+//   };
+// }
+
+export default function Header(user) {
   const router = useRouter();
   const isHome = router.pathname === "/";
-
-  /**
-   * Log the user out
-   */
-  const logoutUser = async () => {
-    try {
-      await destroyCookie("jwt");
-      setUser(null);
-      router.push("/");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const { userCtx, jea, jeaSet } = useContext(HeaderContext);
 
   const goBack = (event) => {
     event.preventDefault();
@@ -103,21 +97,15 @@ export default (user) => {
         </div>
       </div>
       <div className={styles.auth}>
+        {/* login indicator */}
         {user ? (
           <>
             <Link href="/account">
               <a>
-                account
+                account, {userCtx.firstName}
                 <img src="/user_avatar.png" alt={user.email} />
               </a>
             </Link>
-
-            <p>Logged in as {user}</p>
-            <p>
-              <a href="#" onClick={logoutUser}>
-                Logout
-              </a>
-            </p>
           </>
         ) : (
           <Link href="/login">
@@ -127,4 +115,4 @@ export default (user) => {
       </div>
     </div>
   );
-};
+}
