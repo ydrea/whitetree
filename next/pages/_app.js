@@ -8,16 +8,16 @@ import { HeaderContextWrapper } from "../context/HeaderContext";
 
 function MyApp({ Component, pageProps }) {
   //
-  console.log(pageProps);
+  console.log("PageProps", pageProps);
 
   return (
     // <NavProvider navigation={navigation}>
     <>
       <HeaderContextWrapper>
         <Header />
+        <Component {...pageProps} />
+        <Footer />
       </HeaderContextWrapper>
-      <Component {...pageProps} />
-      <Footer />
     </>
     // </NavProvider>
   );
@@ -36,6 +36,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   let pageProps = {};
   const jwt = parseCookies(ctx).jwt;
 
+  // const userId = parseCookies{ctx}.userId;
   // const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`);
   // const navigation = await res.json();
 

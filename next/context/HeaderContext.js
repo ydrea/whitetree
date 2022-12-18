@@ -1,17 +1,15 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useMemo } from "react";
 //import {createContext, useContextSelector} from 'use-context-selector'
 
 export const HeaderContext = createContext(null);
 
 export const HeaderContextWrapper = (props) => {
-  const userCtx = {
-    firstName: "Alo",
-    lastName: "Medo",
-  };
-  const [jea, jeaSet] = useState(true);
-
+  const [user, userSet] = useState(null);
+  //prettier-ignore
+  // const hcValue = useMemo(() => {{user, userSet}}, [user, userSet]);
+  // console.log(...hcValue);
   return (
-    <HeaderContext.Provider value={{ userCtx, jea, jeaSet }}>
+    <HeaderContext.Provider value={{user, userSet}}>
       {props.children}
     </HeaderContext.Provider>
   );

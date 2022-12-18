@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Router from "next/router";
 import { setCookie } from "nookies";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { HeaderContext } from "../context/HeaderContext";
 import styles from "../styles/Login.module.css";
 //
 
@@ -9,6 +10,8 @@ import styles from "../styles/Login.module.css";
 export default function Login() {
   const [email, emailSet] = useState("");
   const [pass, passSet] = useState("");
+
+  const { user, userSet } = useContext(HeaderContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,15 +29,21 @@ export default function Login() {
       body: JSON.stringify(logINfo),
     });
     const loginRes = await login.json();
+    console.log("logINfo", logINfo);
     console.log(loginRes);
     // //cookie
-    setCookie(null, `jwt`, loginRes.jwt, {
+    setCookie(null, "jwt", loginRes.jwt, {
       maxAge: 60 * 60 * 24 * 365,
       path: "/",
     });
-    Router.push("/");
+    Router.push("/account");
   };
-
+  //
+  useEffect(() => {
+    userSet(email);
+    console.log("user", user);
+  }, []);
+  //
   return (
     <div>
       <Head>

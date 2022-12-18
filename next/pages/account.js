@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { destroyCookie, parseCookies } from "nookies";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { HeaderContext } from "../context/HeaderContext";
 import { parseJwt } from "../utils/parseJwt";
 import { useOrders } from "../utils/useOrders";
 // //
@@ -10,10 +11,14 @@ export default function account({ userId, jwt }) {
   const { orders, loading } = useOrders();
   const [, userIdSet] = useState();
   //
+  const { user, userSet } = useContext(HeaderContext);
 
+  console.log("AccProps", userId);
   const logoutUser = () => {
-    destroyCookie(context, "jwt");
-    userIdSet(null);
+    destroyCookie(jwt, "jwt");
+    console.log("Logout", jwt);
+    userIdSet("");
+    console.log("Logout", userId);
   };
 
   //
@@ -31,7 +36,7 @@ export default function account({ userId, jwt }) {
   return (
     <div>
       <Head>
-        <title>Your Account</title>
+        <title>Your Account {user}</title>
         <meta name="description" content="Your orders will be shown here" />
       </Head>
       <h2>Account Page</h2>
@@ -55,6 +60,7 @@ export default function account({ userId, jwt }) {
   );
 }
 export async function getServerSideProps(context) {
+  console.log(context);
   const jwt = parseCookies(context).jwt || null;
   if (jwt) {
     const user = parseJwt(jwt);
