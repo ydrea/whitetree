@@ -11,7 +11,7 @@ import { HeaderContext } from "../context/HeaderContext";
 export default function Header() {
   const router = useRouter();
   const isHome = router.pathname === "/";
-  const { user } = useContext(HeaderContext);
+  const { user, userSet } = useContext(HeaderContext);
 
   useEffect(() => {
     console.log("HeaderContext", user);
@@ -90,11 +90,11 @@ export default function Header() {
       </div>
       <div className={styles.auth}>
         {/* login indicator */}
-        {user ? (
+        {user !== null ? (
           <>
             <Link href="/account">
               <a>
-                account, {JSON.stringify(user)}?
+                account {user}
                 <img src="/user_avatar.png" alt={"alt"} />
               </a>
             </Link>

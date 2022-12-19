@@ -12,17 +12,18 @@ export default function account({ userId, jwt }) {
   const [, userIdSet] = useState();
   //
   const { user, userSet } = useContext(HeaderContext);
-
   console.log("AccProps", userId);
+
   const logoutUser = () => {
-    destroyCookie(jwt, "jwt");
+    destroyCookie(null, "jwt");
     console.log("Logout", jwt);
-    userIdSet("");
-    console.log("Logout", userId);
+    userSet();
+    userIdSet(null);
+    console.log("Logout", user);
   };
 
   //
-  if (!userId) {
+  if (!user) {
     return (
       <div>
         <p>Please Login or Register before accessing this page</p>
@@ -36,7 +37,7 @@ export default function account({ userId, jwt }) {
   return (
     <div>
       <Head>
-        <title>Your Account {user}</title>
+        <title>Your Account</title>
         <meta name="description" content="Your orders will be shown here" />
       </Head>
       <h2>Account Page</h2>
@@ -50,7 +51,9 @@ export default function account({ userId, jwt }) {
         </div>
       ))}
       <hr />
-      <p>Logged in as {userId}</p>
+      <p>
+        Logged in as {userId} {user}
+      </p>
       <p>
         <a href="#" onClick={logoutUser}>
           Logout
@@ -63,8 +66,8 @@ export async function getServerSideProps(context) {
   console.log(context);
   const jwt = parseCookies(context).jwt || null;
   if (jwt) {
-    const user = parseJwt(jwt);
-    const userId = user.id;
+    const userP = parseJwt(jwt);
+    const userId = userP.id;
     return {
       props: { jwt, userId },
     };

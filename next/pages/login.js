@@ -36,14 +36,15 @@ export default function Login() {
       maxAge: 60 * 60 * 24 * 365,
       path: "/",
     });
+    userSet(email);
     Router.push("/account");
   };
-  //
-  useEffect(() => {
-    userSet(email);
-    console.log("user", user);
-  }, []);
-  //
+  // //
+  // useEffect(() => {
+  //   userSet(email);
+  //   console.log("user", user);
+  // }, []);
+  // //
   return (
     <div>
       <Head>
