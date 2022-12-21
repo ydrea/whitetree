@@ -11,7 +11,7 @@ import { HeaderContext } from "../context/HeaderContext";
 export default function Header() {
   const router = useRouter();
   const isHome = router.pathname === "/";
-  const { user, userSet } = useContext(HeaderContext);
+  const { user } = useContext(HeaderContext);
 
   useEffect(() => {
     console.log("HeaderContext", user);
@@ -108,3 +108,7 @@ export default function Header() {
     </div>
   );
 }
+
+// Header.getInitialProps = async (context) => {
+//   console.log(context);
+// };

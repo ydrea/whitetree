@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../styles/globals.css";
 import { HeaderContextWrapper } from "../context/HeaderContext";
-
+import Router from "next/dist/next-server/server/router";
 //
 
 function MyApp({ Component, pageProps }) {
@@ -34,11 +34,8 @@ function redirectUser(ctx, location) {
 
 MyApp.getInitialProps = async ({ Component, ctx }) => {
   let pageProps = {};
-  const jwt = parseCookies(ctx).jwt;
 
-  // const userId = parseCookies{ctx}.userId;
-  // const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`);
-  // const navigation = await res.json();
+  const jwt = parseCookies(ctx).jwt;
 
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);

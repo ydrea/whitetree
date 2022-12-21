@@ -1,7 +1,9 @@
 // import Head from "next/head";
 import Link from "next/link";
 import { parseCookies } from "nookies";
-import Form from "../components/Form";
+import { useContext } from "react";
+import Form from "./form";
+import { HeaderContext } from "../context/HeaderContext";
 import styles from "../styles/Home.module.css";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 
@@ -9,10 +11,6 @@ import { API_URL, fromImageToUrl } from "../utils/urls";
 export async function getServerSideProps(context) {
   // console.log(context);
   const { req } = context;
-  // console.log("REQ:", req);
-  // console.log("RES:", req.cookies);
-  const userid = Object.keys(req.cookies);
-  console.log(userid[3]);
   const res = await fetch(`${API_URL}/menus`);
   const items = await res.json();
   // console.log(items);
@@ -25,6 +23,7 @@ export async function getServerSideProps(context) {
 //
 function menus({ items, context }) {
   const jwt = parseCookies(context).jwt;
+  const user = useContext(HeaderContext);
   return (
     <div>
       <h3>menus</h3>
@@ -50,7 +49,7 @@ function menus({ items, context }) {
           </div>
         ))}
       </span>{" "}
-      <Form jwt={jwt} />
+      <Form jwt={jwt} user={user.user} />
     </div>
   );
 }

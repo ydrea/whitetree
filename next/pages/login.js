@@ -30,14 +30,14 @@ export default function Login() {
     });
     const loginRes = await login.json();
     console.log("logINfo", logINfo);
-    console.log(loginRes);
+    console.log("loginRES", loginRes);
     // //cookie
     setCookie(null, "jwt", loginRes.jwt, {
       maxAge: 60 * 60 * 24 * 365,
       path: "/",
     });
     userSet(email);
-    Router.push("/account");
+    Router.push("/form");
   };
   // //
   // useEffect(() => {

@@ -2,12 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import styles from "../styles/Form.module.css";
 import { API_URL } from "../utils/urls";
 import { HeaderContext } from "../context/HeaderContext";
+import { parseJwt } from "../utils/parseJwt";
+import { destroyCookie, parseCookies } from "nookies";
 //
-function Form({ jwt, user }) {
+function form({ jwt }) {
   const [ime, imeSet] = useState("");
   const [description, descriptionSet] = useState("");
   const [loading, setLoading] = useState(false);
-  // const user = useContext(HeaderContext);
+  //
+  const { user, userSet } = useContext(HeaderContext);
 
   const url = API_URL + "/menus";
   // //
@@ -15,9 +18,13 @@ function Form({ jwt, user }) {
     console.log(jwt, user);
   }, []);
 
+  const handleSubmit = () => {
+    // e.preventDefault();
+    postMenus();
+  };
+
   const postMenus = async () => {
     if (user) {
-      // e.preventDefault();
       setLoading(true);
       try {
         const data = { ime: ime, description: description };
@@ -41,7 +48,7 @@ function Form({ jwt, user }) {
 
   return (
     <div className={styles.contain}>
-      <form onSubmit={() => postMenus()}>
+      <form>
         <input
           type="text"
           value={ime}
@@ -52,10 +59,26 @@ function Form({ jwt, user }) {
           value={description}
           onChange={(e) => descriptionSet(e.target.value)}
         />
-        <input type="submit" value="submit" />
+        <input type="button" value="submit" onClick={() => handleSubmit()} />
       </form>
     </div>
   );
 }
 
-export default Form;
+export default form;
+
+export async function getServerSideProps(context) {
+  console.log(context);
+  const jwt = parseCookies(context).jwt || null;
+  if (jwt) {
+    const userP = parseJwt(jwt);
+    const userId = userP.id;
+    return {
+      props: { jwt, userId },
+    };
+  } else {
+    return {
+      props: {},
+    };
+  }
+}

@@ -7,19 +7,19 @@ import { parseJwt } from "../utils/parseJwt";
 import { useOrders } from "../utils/useOrders";
 // //
 
-export default function account({ userId, jwt }) {
+export default function account({ jwt }) {
   const { orders, loading } = useOrders();
   const [, userIdSet] = useState();
   //
   const { user, userSet } = useContext(HeaderContext);
-  console.log("AccProps", userId);
+  // console.log("AccProps", userId);
 
   const logoutUser = () => {
     destroyCookie(null, "jwt");
     console.log("Logout", jwt);
     userSet();
-    userIdSet(null);
-    console.log("Logout", user);
+    userIdSet();
+    // console.log("Logout", user);
   };
 
   //
@@ -51,9 +51,7 @@ export default function account({ userId, jwt }) {
         </div>
       ))}
       <hr />
-      <p>
-        Logged in as {userId} {user}
-      </p>
+      <p>Logged in as userId {user}</p>
       <p>
         <a href="#" onClick={logoutUser}>
           Logout
