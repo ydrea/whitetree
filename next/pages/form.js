@@ -10,20 +10,21 @@ function form({ jwt }) {
   const [description, descriptionSet] = useState("");
   const [loading, setLoading] = useState(false);
   //
+  // const jwt = parseCookies(context).jwt;
   const { user, userSet } = useContext(HeaderContext);
+  console.log("userMenus", user);
 
   const url = API_URL + "/menus";
-  // //
+  //
   useEffect(() => {
     console.log(jwt, user);
   }, []);
 
   const handleSubmit = () => {
-    // e.preventDefault();
-    postMenus();
+    postMenus(jwt, user);
   };
 
-  const postMenus = async () => {
+  const postMenus = async (jwt, user) => {
     if (user) {
       setLoading(true);
       try {
@@ -33,7 +34,7 @@ function form({ jwt }) {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer + ${jwt}`,
+            Authorization: `Bearer ${jwt}`,
           },
           body: JSON.stringify(data),
         });

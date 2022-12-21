@@ -37,7 +37,7 @@ export default function Login() {
       path: "/",
     });
     userSet(email);
-    Router.push("/form");
+    Router.push("/menus");
   };
   // //
   // useEffect(() => {

@@ -23,7 +23,9 @@ export async function getServerSideProps(context) {
 //
 function menus({ items, context }) {
   const jwt = parseCookies(context).jwt;
-  const user = useContext(HeaderContext);
+  const { user, userSet } = useContext(HeaderContext);
+  console.log("userMenus", user);
+
   return (
     <div>
       <h3>menus</h3>
@@ -49,7 +51,7 @@ function menus({ items, context }) {
           </div>
         ))}
       </span>{" "}
-      <Form jwt={jwt} user={user.user} />
+      <Form jwt={jwt} user={user} />
     </div>
   );
 }

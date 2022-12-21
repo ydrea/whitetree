@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../styles/globals.css";
 import { HeaderContextWrapper } from "../context/HeaderContext";
-import Router from "next/dist/next-server/server/router";
+import Router from "next/router";
 //
 
 function MyApp({ Component, pageProps }) {

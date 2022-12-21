@@ -17,7 +17,7 @@ export default function account({ jwt }) {
   const logoutUser = () => {
     destroyCookie(null, "jwt");
     console.log("Logout", jwt);
-    userSet();
+    userSet([]);
     userIdSet();
     // console.log("Logout", user);
   };

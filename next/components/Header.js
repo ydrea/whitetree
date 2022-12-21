@@ -11,10 +11,10 @@ import { HeaderContext } from "../context/HeaderContext";
 export default function Header() {
   const router = useRouter();
   const isHome = router.pathname === "/";
-  const { user } = useContext(HeaderContext);
+  const { user, userSet } = useContext(HeaderContext);
 
   useEffect(() => {
-    console.log("HeaderContext", user);
+    console.log("Header", user);
   });
 
   const goBack = (event) => {
