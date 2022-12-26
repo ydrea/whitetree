@@ -1,21 +1,28 @@
 import Image from "next/image";
-
+import { useState } from "react";
+import { API_URL } from "../utils/urls";
 import styles from "../styles/Icons.module.css";
 
+import Checkbox from "../components/Checkbox";
 function icons() {
-  // function MouseOver(event) {
-  //   event.target.style.background = "red";
-  // }
-  // function MouseOut(event) {
-  //   event.target.style.background = "";
-  // }
+  const [vegetarian, vegetarianSet] = useState(false);
+  const handleVegetarian = () => {
+    vegetarianSet(!vegetarian);
+  };
+  const [image, setImage] = useState("/VT/vt-.svg");
+
+  function handleMouseEnter(imagePath) {
+    return () => {
+      setImage(imagePath);
+    };
+  }
   return (
     <div className={styles.contain}>
       <div className={styles.cnt}>
         vegan
         <span className={styles.icons}>
           <Image
-            src="/VG/vg.svg"
+            src={"VG/vg.svg"}
             alt="vegan"
             width={58}
             height={58}
@@ -27,12 +34,28 @@ function icons() {
       <div className={styles.cnt}>
         vegetarian
         <span className={styles.icons}>
+          {" "}
           <Image
-            src="/VT/vt.svg"
+            src={image}
             alt="vegetarian"
             width={58}
             height={58}
             data-tip="vegetarian"
+          />
+          <div className={styles.hovericon}>
+            <Image
+              src="VT/vt.svg"
+              alt="vegetarian"
+              width={58}
+              height={58}
+              data-tip="vegetarian"
+            />
+          </div>
+          <Checkbox
+            id="box"
+            label="Vt"
+            value={vegetarian}
+            onChange={handleVegetarian}
           />
         </span>
       </div>
@@ -41,7 +64,7 @@ function icons() {
         keto
         <span className={styles.icons}>
           <Image
-            src="/KT/kt.svg"
+            src={API_URL + "/uploads/kt_344405c4f5.svg"}
             alt="keto"
             width={58}
             height={58}
@@ -54,7 +77,7 @@ function icons() {
         paleo
         <span className={styles.icons}>
           <Image
-            src="/PL/pl.svg"
+            src={API_URL + "/uploads/pl_4c618c55f7.svg"}
             alt="paleo"
             width={58}
             height={58}
@@ -67,7 +90,7 @@ function icons() {
         gluten-
         <span className={styles.icons}>
           <Image
-            src="/GF/gf.svg"
+            src={API_URL + "/uploads/gf_29fbacaf4a.svg"}
             alt="
             gluten-free"
             width={58}
@@ -81,7 +104,7 @@ function icons() {
         organic
         <span className={styles.icons}>
           <Image
-            src="/OR/or.svg"
+            src={API_URL + "/uploads/or_96ff90794e.svg"}
             alt="organic"
             width={58}
             height={58}
@@ -94,7 +117,7 @@ function icons() {
         affordable
         <span className={styles.icons}>
           <Image
-            src="/AF/af.svg"
+            src={API_URL + "/uploads/af_595cf5b430.svg"}
             alt="affordable"
             width={58}
             height={58}
@@ -107,7 +130,7 @@ function icons() {
         local
         <span className={styles.icons}>
           <Image
-            src="/LS/ls.svg"
+            src={API_URL + "/uploads/ls_265521672a.svg"}
             alt="local"
             width={58}
             height={58}

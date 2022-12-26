@@ -52,6 +52,7 @@ function Form({ jwt, user }) {
           value={description}
           onChange={(e) => descriptionSet(e.target.value)}
         />
+
         <input type="submit" value="submit" />
       </form>
     </div>

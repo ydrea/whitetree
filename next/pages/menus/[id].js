@@ -2,8 +2,13 @@ import Head from "next/head";
 import BuyButton from "../../components/BuyButton";
 import { twoDecimals } from "../../utils/format";
 import { API_URL, fromImageToUrl } from "../../utils/urls";
+
+import { useContext } from "react";
+import { HeaderContext } from "../../context/HeaderContext";
 //
 const Menu = ({ item }) => {
+  const { user, userSet } = useContext(HeaderContext);
+  console.log("userMenus", user);
   return (
     <div>
       <Head>
@@ -16,7 +21,7 @@ const Menu = ({ item }) => {
       <h3>{item.name}</h3>
       <img src={fromImageToUrl(item.img_main)} />
       <h3>{item.name}</h3>
-      <BuyButton product={item} />
+      {/* <BuyButton product={item} /> */}
       <p>${twoDecimals(item.price)}</p>
 
       <p>{item.content}</p>

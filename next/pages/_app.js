@@ -5,6 +5,9 @@ import "../styles/globals.css";
 import { HeaderContextWrapper } from "../context/HeaderContext";
 import Router from "next/router";
 //
+import store from "../redux/store";
+import { Provider } from "react-redux";
+//
 
 function MyApp({ Component, pageProps }) {
   //
@@ -13,11 +16,13 @@ function MyApp({ Component, pageProps }) {
   return (
     // <NavProvider navigation={navigation}>
     <>
-      <HeaderContextWrapper>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </HeaderContextWrapper>
+      <Provider store={store}>
+        <HeaderContextWrapper>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </HeaderContextWrapper>
+      </Provider>
     </>
     // </NavProvider>
   );

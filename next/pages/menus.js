@@ -42,6 +42,7 @@ function menus({ items, context }) {
                   <div className={styles.product__Col}>
                     <p>{i.name} </p>
                     <p>{i.description}</p>
+                    <input type="checkbox" />
                     {console.log(i.icons)}
                     {i.icons.map((ii) => ii.icon.name)}
                   </div>

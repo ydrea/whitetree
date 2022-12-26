@@ -11,3 +11,20 @@
     flex-direction: column;
     padding: 20px;
 }
+
+.icons {
+    background-color: olive;
+    position: absolute;
+}
+
+.hovericon {
+    display: none;
+    position: absolute;
+    background-color: none;
+    top: 0;
+    left: 0;
+}
+
+.icons:hover .hovericon {
+    display: inline;
+}

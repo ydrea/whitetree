@@ -1,0 +1,40 @@
+"vegan":
+{
+    "id":0,
+    "url":  "vg_f9075a35c3.svg",
+   "titl": "vegan"},
+
+"vegetarian":
+{
+    "id":1, "url":    "vt_959d04a0cd.svg",
+    "titl": "vegetarian"},
+
+"keto":
+{
+    "id":2, "url":    "kt_344405c4f5.svg",
+    "titl": "keto"},
+
+"paleo":
+{
+    "id":3, "url":      "pl_4c618c55f7.svg",
+    "titl": "paleo"},
+   
+"gluten-":
+{
+    "id":4, "url":      "gf_29fbacaf4a.svg",
+    "titl": "gluten-free"},
+    
+"organic":
+{
+    "id":5, "url":      "or_96ff90794e.svg",
+    "titl":  "organic"},
+
+"affordable":
+{
+    "id":6, "url":      "af_595cf5b430.svg",
+    "titl":   "affordable"},
+
+"local": 
+{
+    "id":7, "url":      "ls_265521672a.svg",
+    "titl":  "locally sourced"}
