@@ -1,17 +1,21 @@
 .contain {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 
 }
 .cnt {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: row; */
     padding: 20px;
+    margin: 29px;
 }
 
+.label {
+    position: absolute;
+}
 .icons {
     background-color: olive;
     position: absolute;

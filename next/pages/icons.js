@@ -19,7 +19,6 @@ function icons() {
   return (
     <div className={styles.contain}>
       <div className={styles.cnt}>
-        vegan
         <span className={styles.icons}>
           <Image
             src={"VG/vg.svg"}
@@ -28,11 +27,11 @@ function icons() {
             height={58}
             data-tip="vegan"
           />
+          <p className={styles.label}>vegan</p>
         </span>
       </div>
 
       <div className={styles.cnt}>
-        vegetarian
         <span className={styles.icons}>
           {" "}
           <Image
@@ -42,6 +41,7 @@ function icons() {
             height={58}
             data-tip="vegetarian"
           />
+          <p className={styles.label}>vegetarian</p>
           <div className={styles.hovericon}>
             <Image
               src="VT/vt.svg"
@@ -63,7 +63,6 @@ function icons() {
       </div>
 
       <div className={styles.cnt}>
-        keto
         <span className={styles.icons}>
           <Image
             src={API_URL + "/uploads/kt_344405c4f5.svg"}
@@ -72,6 +71,7 @@ function icons() {
             height={58}
             data-tip="keto"
           />
+          <p className={styles.label}>keto</p>
         </span>
       </div>
 
