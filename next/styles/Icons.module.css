@@ -16,7 +16,10 @@
     background-color: olive;
     position: absolute;
 }
-
+.hide {
+    visibility: hidden;
+    height: 0; width: 0;
+}
 .hovericon {
     display: none;
     position: absolute;

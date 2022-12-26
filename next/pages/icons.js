@@ -51,12 +51,14 @@ function icons() {
               data-tip="vegetarian"
             />
           </div>
-          <Checkbox
-            id="box"
-            label="Vt"
-            value={vegetarian}
-            onChange={handleVegetarian}
-          />
+          <div className={styles.hide}>
+            <Checkbox
+              id="box"
+              label="Vt"
+              value={vegetarian}
+              onChange={handleVegetarian}
+            />
+          </div>
         </span>
       </div>
 
