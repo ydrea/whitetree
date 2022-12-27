@@ -2,10 +2,13 @@ import Image from "next/image";
 import { useState } from "react";
 import { API_URL } from "../utils/urls";
 import styles from "../styles/Icons.module.css";
-
 // import Checkbox from "../components/Checkbox";
+import { useDispatch } from "react-redux";
+
 function icons() {
-  const [vegetarian, vegetarianSet] = useState(false);
+  const dispatch = useDispatch();
+
+  const [vegetarian, vegetarianSet] = useState(true);
   const [image, setImage] = useState("/VT/vt+.svg");
 
   const handleVegetarian = () => {
@@ -20,19 +23,6 @@ function icons() {
 
   return (
     <div className={styles.contain}>
-      <div className={styles.cnt}>
-        <span className={styles.icons}>
-          <Image
-            src={"VG/vg.svg"}
-            alt="vegan"
-            width={98}
-            height={98}
-            data-tip="vegan"
-          />
-          <p className={styles.label}>vegan</p>
-        </span>
-      </div>
-
       <div className={styles.cnt}>
         <span className={styles.icons}>
           {" "}
@@ -60,7 +50,18 @@ function icons() {
           </div>
         </span>
       </div>
-
+      <div className={styles.cnt}>
+        <span className={styles.icons}>
+          <Image
+            src={"VG/vg.svg"}
+            alt="vegan"
+            width={98}
+            height={98}
+            data-tip="vegan"
+          />
+          <p className={styles.label}>vegan</p>
+        </span>
+      </div>
       <div className={styles.cnt}>
         <span className={styles.icons}>
           <Image
