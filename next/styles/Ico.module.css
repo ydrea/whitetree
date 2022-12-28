@@ -1,6 +1,6 @@
 .container {
     display: block;
-    /* position: absolute; */
+    position: absolute;
 }
 .hover {opacity: 0;}
 

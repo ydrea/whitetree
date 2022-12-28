@@ -44,14 +44,14 @@
     display: inline;
 } 
 /*  */
-  .iconcheckbox {
+  .iconcheckbox+label {
     height: 160;
     width: 160;
     position: absolute;
     /* visibility: hidden; */
   }
   
-  .iconcheckbox:checked .doneicon{
+  .iconcheckbox:checked+label .doneicon{
     display: inline;
   }
   

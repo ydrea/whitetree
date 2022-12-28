@@ -6,9 +6,9 @@ import styles from "../styles/Ico.module.css";
 function ico() {
   return (
     //prettier-ignore
-    <div id="ckb" className={styles.container}>
-      <input className={styles.ckb} type="checkbox" name="vt" />
-      <label htmlFor="bu">
+    <div  className={styles.container}>
+      <input className={styles.ckb} type="checkbox" name="vt" id="ckb"/>
+      <label htmlFor="ckb">
         <Image src="VT/vt-.svg" height={88} width={88} className={styles.init}/>
         <Image src="VT/vt.svg" height={88} width={88} className={styles.hover} />
         <Image src="VT/vt+.svg" height={88} width={88} className={styles.active} />
