@@ -1,29 +1,34 @@
 .container {
     display: block;
-    position: absolute;
+    position: relative;
 }
-.hover {opacity: 0;}
 
-.active {opacity: 0;}
+.init {
+    position: absolute;
+    top: 0; left: 0;
+}
+.hover {opacity: 0;
+    position: absolute;
+    top: 0; left: 0;
+}
 
-.done {opacity: 0;}
+.done {opacity: 0;
+    position: absolute;
+    top: 0; left: 0;
+}
 
 input[type='checkbox'].ckb {
 opacity: 1;
 cursor: pointer;
-/* position: absolute; */
+position: absolute;
 }
-
 
 input[type='checkbox'].ckb:hover + label .hover {
     opacity: 1;
-    }
-
-
-input[type='checkbox'].ckb:active + label .active {
-    opacity: 1;
+    display: inline;
     }
 
 input[type='checkbox'].ckb:checked + label .done {
     opacity: 1;
+    display: inline;
     }
