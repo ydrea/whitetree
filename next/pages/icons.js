@@ -9,16 +9,15 @@ function icons() {
   const dispatch = useDispatch();
 
   const [vegetarian, vegetarianSet] = useState(true);
-  const [image, setImage] = useState("/VT/vt+.svg");
-
+  const [vt, setVt] = useState([
+    "VT/vt-.svg",
+    "VT/vt.svg",
+    "VT/vt+.svg",
+    "VT/vt++.svg",
+  ]);
   const handleVegetarian = () => {
     vegetarianSet(!vegetarian);
     console.log(vegetarian);
-  };
-
-  const handleImage = () => {
-    setImage(image);
-    console.log(image);
   };
 
   return (
@@ -27,7 +26,7 @@ function icons() {
         <span className={styles.icons}>
           {" "}
           <Image
-            src={"VT/vt-.svg"}
+            src={vt[0]}
             alt="vegetarian"
             width={48}
             height={48}
@@ -35,16 +34,21 @@ function icons() {
           />
           <p className={styles.label}>vegetarian</p>
           <div className={styles.hovericon}>
-            <Image src="VT/vt.svg" alt="vegetarian" width={98} height={98} />
+            <Image src={vt[1]} alt="vegetarian" width={48} height={48} />
+          </div>{" "}
+          <div className={styles.clickicon}>
+            <Image src={vt[2]} alt="vegetarian" width={48} height={48} />
+          </div>
+          <div className={styles.doneicon}>
+            <Image src={vt[3]} alt="vegetarian" width={48} height={48} />
           </div>
           <div>
             <input
               className={styles.iconcheckbox}
               type="checkbox"
               checked={!vegetarian}
-              id="box"
+              id={`box`}
               label="Vt"
-              // value={vegetarian}
               onChange={handleVegetarian}
             />
           </div>
