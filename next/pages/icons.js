@@ -9,12 +9,8 @@ function icons() {
   const dispatch = useDispatch();
 
   const [vegetarian, vegetarianSet] = useState(true);
-  const [vt, setVt] = useState([
-    "VT/vt-.svg",
-    "VT/vt.svg",
-    "VT/vt+.svg",
-    "VT/vt++.svg",
-  ]);
+  const [vt, setVt] = useState(["VT/vt-.svg", "VT/vt.svg", "VT/vt+.svg"]);
+
   const handleVegetarian = () => {
     vegetarianSet(!vegetarian);
     console.log(vegetarian);
