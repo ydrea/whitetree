@@ -7,7 +7,7 @@
    viewBox="0 0 512.0 512.0"
    version="1.1"
    id="SVGRoot"
-   sodipodi:docname="vt-.svg"
+   sodipodi:docname="vg+.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="0.51580989"
-     inkscape:cx="181.26833"
-     inkscape:cy="293.71286"
+     inkscape:zoom="0.55137521"
+     inkscape:cx="-11.788706"
+     inkscape:cy="296.53129"
      inkscape:window-width="1366"
      inkscape:window-height="697"
      inkscape:window-x="0"
@@ -44,44 +44,44 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke-width:0.979803"
+       style="fill:#008000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.979803"
        id="rect3140"
        width="512"
        height="512"
-       x="0.19713593"
-       y="-3.5661306"
+       x="0"
+       y="0"
        rx="40.813637"
        ry="40.813637" />
+    <rect
+       style="fill:#008000;fill-opacity:1;fill-rule:evenodd;stroke:#008000;stroke-width:15.1181;stroke-dasharray:none;stroke-opacity:1"
+       id="rect315"
+       width="496.98093"
+       height="496.98096"
+       x="7.5590501"
+       y="7.5590553"
+       rx="39.423164"
+       ry="40.176064" />
     <g
        transform="matrix(0.08638341,0,0,-0.10006725,15.020472,487.25859)"
        fill="#000000"
        stroke="none"
        id="g9472"
-       style="fill:#a9a9a9;fill-opacity:1">
+       style="fill:#ffffff">
       <path
          d="m 4180,4689 c -107,-27 -316,-74 -465,-105 -304,-63 -412,-92 -503,-134 -153,-71 -331,-226 -430,-374 -150,-223 -234,-512 -218,-746 12,-185 34,-203 91,-75 119,269 421,618 625,724 74,39 179,75 188,66 8,-8 -44,-77 -129,-169 -272,-297 -533,-754 -749,-1316 -95,-246 -218,-593 -284,-805 -91,-286 -197,-605 -218,-654 l -20,-46 -13,26 c -23,43 -81,242 -186,644 -185,700 -263,950 -403,1298 -172,426 -315,649 -673,1047 -265,294 -567,514 -761,555 -29,6 -32,4 -32,-18 0,-17 33,-62 103,-143 383,-442 599,-763 833,-1237 143,-290 262,-606 404,-1077 179,-594 275,-969 426,-1670 41,-190 81,-368 89,-397 23,-79 33,-83 212,-83 83,0 163,4 178,10 52,20 78,126 155,625 95,617 187,1005 370,1555 135,405 284,723 364,775 13,9 100,32 193,51 92,18 208,48 257,65 233,80 429,215 569,390 135,168 169,286 207,719 14,164 24,220 66,369 19,69 34,138 34,153 0,26 -2,28 -42,27 -24,-1 -131,-23 -238,-50 z"
          id="path9470"
-         style="fill:#a9a9a9;fill-opacity:1" />
+         style="fill:#ffffff" />
     </g>
     <text
        xml:space="preserve"
-       style="font-weight:bold;font-size:333.333px;font-family:'Noto Sans CJK KR';-inkscape-font-specification:'Noto Sans CJK KR, Bold';opacity:0.99;fill:#a9a9a9;fill-opacity:0.592157;fill-rule:evenodd;stroke:#a9a9a9;stroke-width:3.77953;stroke-opacity:1"
-       x="288.82925"
-       y="407.60004"
+       style="font-weight:bold;font-size:266.667px;font-family:'Noto Sans CJK KR';-inkscape-font-specification:'Noto Sans CJK KR, Bold';opacity:0.99;fill:#ffffff;fill-opacity:0.592157;fill-rule:evenodd;stroke:#a9a9a9;stroke-width:3.77953;stroke-opacity:1"
+       x="328.82925"
+       y="423.60004"
        id="text10137"><tspan
          sodipodi:role="line"
          id="tspan10135"
-         x="288.82925"
-         y="407.60004"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:333.333px;font-family:P22Vincent;-inkscape-font-specification:'P22Vincent, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a9a9a9;fill-opacity:1;stroke:#a9a9a9;stroke-opacity:1">T</tspan></text>
-    <rect
-       style="fill:none;fill-rule:evenodd;stroke:#55682f;stroke-width:14.7963;stroke-dasharray:none;stroke-opacity:1"
-       id="rect14489"
-       width="497.20367"
-       height="497.20364"
-       x="7.3981733"
-       y="7.3981681"
-       rx="39.61203"
-       ry="40.280735" />
+         x="328.82925"
+         y="423.60004"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:266.667px;font-family:P22Vincent;-inkscape-font-specification:'P22Vincent, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#a9a9a9;stroke-opacity:1">G</tspan></text>
   </g>
 </svg>

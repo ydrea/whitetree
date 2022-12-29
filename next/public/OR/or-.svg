@@ -7,7 +7,7 @@
    viewBox="0 0 512.0 512.0"
    version="1.1"
    id="SVGRoot"
-   sodipodi:docname="or.svg"
+   sodipodi:docname="or-.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -57,7 +57,7 @@
        fill="#808000"
        stroke-width="2.0599"
        id="path198"
-       style="fill:#63b200;fill-opacity:1" />
+       style="fill:#a9a9a9;fill-opacity:1" />
     <rect
        style="fill:none;fill-rule:evenodd;stroke:#63b200;stroke-width:14.8473;stroke-dasharray:none;stroke-opacity:1"
        id="rect10375"
