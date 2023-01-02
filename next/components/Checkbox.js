@@ -6,7 +6,6 @@ import Image from "next/image";
 const Checkbox = ({ icon, id, name, value, onChange }) => {
   return (
     //prettier-ignore
-
     <div  className={styles.container}>
       <input className={styles.ckb} id={id} name={name} type="checkbox" checked={value} onChange={onChange} />
       <label htmlFor={id}>
