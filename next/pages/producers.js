@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
+import Image from "next/image";
 //
 
 export async function getStaticProps() {
@@ -31,7 +32,12 @@ function producers({ items }) {
               <a>
                 <div className={styles.product__Rows}>
                   <div className={styles.product__ColImg}>
-                    <img src={fromImageToUrl(i.img_main)} />
+                    <Image
+                      src={fromImageToUrl(i.img_main)}
+                      alt=""
+                      width={111}
+                      height={222}
+                    />
                   </div>
                   <div className={styles.product__Col}>
                     {i.name} &euro;{twoDecimals(i.price)}

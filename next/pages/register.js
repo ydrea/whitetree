@@ -8,9 +8,11 @@ import styles from "../styles/Login.module.css";
 //
 
 //
-export default function Login() {
+export default function Register() {
   //
   const dispatch = useDispatch();
+
+  const [username, usernameSet] = useState("");
   const [email, emailSet] = useState("");
   const [pass, passSet] = useState("");
 
@@ -18,29 +20,30 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const logINfo = {
-      identifier: email,
+    const regINfo = {
+      username: username,
+      email: email,
       password: pass,
     };
     //
-    const login = await fetch(`http://localhost:1337/auth/local`, {
+    const register = await fetch(`http://localhost:1337/auth/local/register`, {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(logINfo),
+      body: JSON.stringify(regINfo),
     });
-    const loginRes = await login.json();
-    console.log("logINfo", logINfo);
-    console.log("loginRES", loginRes);
+    const registeRes = await register.json();
+    console.log("logINfo", regINfo);
+    console.log("loginRES", registeRes);
     // //cookie
-    setCookie(null, "jwt", loginRes.jwt, {
+    setCookie(null, "jwt", registeRes.jwt, {
       maxAge: 60 * 60 * 24 * 365,
       path: "/",
     });
     userSet(email);
-    Router.push("/menus");
+    Router.push("/account");
   };
   // //
   // useEffect(() => {
@@ -51,12 +54,22 @@ export default function Login() {
   return (
     <div>
       <Head>
-        <title>Login</title>
-        <meta name="description" content="Login here to be able to purchase" />
+        <title>Register</title>
+        <meta
+          name="description"
+          content="Register here to be able to purchase"
+        />
       </Head>
 
-      <h2>Login</h2>
+      <h2>Register</h2>
       <form onSubmit={handleSubmit}>
+        <input
+          className={styles.input}
+          value={username}
+          onChange={(e) => usernameSet(e.target.value)}
+          type="text"
+          placeholder="username ..."
+        />
         <input
           className={styles.input}
           value={email}
@@ -72,7 +85,7 @@ export default function Login() {
           placeholder="Password..."
         />
         <button className={styles.button} type="submit">
-          Log In
+          Register
         </button>
       </form>
     </div>

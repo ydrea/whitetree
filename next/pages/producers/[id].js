@@ -16,7 +16,7 @@ const Producer = ({ item }) => {
       <h3>{item.name}</h3>
       <img src={fromImageToUrl(item.img_main)} />
       <h3>{item.name}</h3>
-      <BuyButton product={item} />
+      {/* <BuyButton product={item} /> */}
       <p>${twoDecimals(item.price)}</p>
 
       <p>{item.content}</p>
