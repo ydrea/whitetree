@@ -12,19 +12,19 @@ const Checkbox = ({ icon, id, name, value, onChange }) => {
         checked={value} onChange={onChange}
       />
       <label htmlFor={id}>
-        <Image
+        <img
           src={`${name}/${icon[0]}`}
           height={88}
           width={88}
           className={styles.init}
         />
-        <Image
+        <img
           src={`${name}/${icon[1]}`}
           height={88}
           width={88}
           className={styles.hover}
         />
-        <Image
+        <img
           src={`${name}/${icon[2]}`}
           height={88}
           width={88}
