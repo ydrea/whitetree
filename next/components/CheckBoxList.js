@@ -1,40 +1,47 @@
 import React, { useState } from "react";
+
+import styles from "../styles/Ico.module.css";
 import { useDispatch } from "react-redux";
+import Vt from "./ico/Vt";
+import Vg from "./ico/Vg";
 //
 
 const CheckBoxList = () => {
-  const [checked, checkedSet] = useState(false);
-
-  const handleCheck = () => {
-    checkedSet(!checked);
-  };
-
-  const dispatch = useDispatch();
-
-  const [vegetarian, vegetarianSet] = useState(true);
+  // const dispatch = useDispatch();
   const [vt, setVt] = useState(["VT/vt-.svg", "VT/vt.svg", "VT/vt+.svg"]);
+  const [vegetarian, vegetarianSet] = useState(true);
 
-  const handleVegetarian = () => {
-    vegetarianSet(!vegetarian);
-    console.log(vegetarian);
-  };
+  const [vg, setVg] = useState(["VG/vg-.svg", "VG/vg.svg", "VG/vg+.svg"]);
+  const [vegan, veganSet] = useState(true);
 
   return (
-    <div>
-      <label>
-        <Checkbox icon={vt} id="Vt" value={checked} onChange={handleCheck} />
-      </label>
-      <p>Is it Vegan? {checked.toString()}</p>
+    <div className={styles.box}>
+      <div className={styles.boxicon}>
+        <label>
+          <Vt
+            icon={vt}
+            id="Vt"
+            name="VT"
+            value={vegetarian}
+            onChange={() => vegetarianSet(!vegetarian)}
+          />
+        </label>
+        <p>Is it ? {vegetarian.toString()}</p>
+      </div>
+
+      <div className={styles.boxicon}>
+        <label>
+          <Vg
+            icon={vg}
+            id="Vg"
+            name="VG"
+            value={vegan}
+            onChange={() => veganSet(!vegan)}
+          />
+        </label>
+        <p>Is it ? {vegan.toString()}</p>
+      </div>
     </div>
-  );
-};
-
-const Checkbox = ({ label, value, onChange }) => {
-  return (
-    <label>
-      <input type="checkbox" checked={value} onChange={onChange} />
-      {label}
-    </label>
   );
 };
 

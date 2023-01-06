@@ -1,6 +1,18 @@
+/* .box {
+    display: flex;
+flex-direction: column;
+} */
+/* .boxicon {display: flex;} */
+
 .container {
-    display: block;
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.lab {
+    /* position: absolute; */
+    left: 5rem;
 }
 
 .init {
@@ -17,18 +29,17 @@
     top: 0; left: 0;
 }
 
-input[type='checkbox'].ckb {
-opacity: 1;
-cursor: pointer;
-position: absolute;
+input[id='ckb1'] + label .init {
+   opacity: 1;
+   position: absolute;
 }
 
-input[type='checkbox'].ckb:hover + label .hover {
+input[id='ckb1']:hover + label .hover {
     opacity: 1;
     display: inline;
     }
 
-input[type='checkbox'].ckb:checked + label .done {
-    opacity: 1;
+    input[id='ckb1']:checked + label .done {
+   opacity: 1;
     display: inline;
     }

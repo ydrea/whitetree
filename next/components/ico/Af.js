@@ -1,9 +1,6 @@
-import Image from "next/image";
-import { useState } from "react";
-import { API_URL } from "../utils/urls";
-import styles from "../styles/Ico.module.css";
+import styles from "../../styles/Ico.module.css";
 
-function ico() {
+export default function Af() {
   return (
     //prettier-ignore
     <div  className={styles.container}>
@@ -17,5 +14,3 @@ function ico() {
     </div>
   );
 }
-
-export default ico;
