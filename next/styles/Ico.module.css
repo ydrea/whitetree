@@ -1,7 +1,7 @@
-/* .box {
+.box {
     display: flex;
 flex-direction: column;
-} */
+}
 /* .boxicon {display: flex;} */
 
 .container {
@@ -29,17 +29,17 @@ flex-direction: column;
     top: 0; left: 0;
 }
 
-input[id='ckb1'] + label .init {
+input[id^='ckb'] + label .init {
    opacity: 1;
    position: absolute;
 }
 
-input[id='ckb1']:hover + label .hover {
+input[id^='ckb']:hover + label .hover {
     opacity: 1;
     display: inline;
     }
 
-    input[id='ckb1']:checked + label .done {
+    input[id^='ckb']:checked + label .done {
    opacity: 1;
     display: inline;
     }

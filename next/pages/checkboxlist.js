@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Checkbox from "../components/Checkbox";
 import icons from "../public/icons.json";
+import styles from "../styles/Ico.module.css";
 //
 
 function checkboxlist() {
