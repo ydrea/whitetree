@@ -23,9 +23,10 @@ function checkboxlist() {
   };
 
   return (
-    <div>
+    <div className={styles.box}>
       {item.map((i) => (
         <Checkbox
+          className={styles.boxicon}
           id={`ckb${i.id}`}
           key={i.id}
           name={i.name}
