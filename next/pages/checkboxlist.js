@@ -34,7 +34,7 @@ function checkboxlist() {
           onChange={() => handleCheckboxCheck(i)}
         />
       ))}
-      <span>{checkArray.checktions.toString()}</span>
+      <span>{checkArray.checktions.map((ii) => ii.longname)}</span>
     </div>
   );
 }
