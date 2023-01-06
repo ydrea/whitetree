@@ -4,7 +4,7 @@ import Image from "next/image";
 //
 
 const Checkbox = ({ icon, id, name, value, onChange }) => {
-  console.log(icon, id);
+  // console.log(icon, id);
   return (
     //prettier-ignore
     <div className={styles.container}>
