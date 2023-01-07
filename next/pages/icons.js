@@ -5,7 +5,7 @@ import icons from "../public/icons.json";
 import styles from "../styles/Ico.module.css";
 //
 
-function Boxlist() {
+function checkboxlist() {
   const item = icons.icons;
 
   const [checkArray, checkArraySet] = useState({ checktions: [] });
@@ -26,6 +26,7 @@ function Boxlist() {
     <div className={styles.gridc}>
       {item.map((i) => (
         <Checkbox
+          className={styles.gridicon}
           id={`ckb${i.id}`}
           key={i.id}
           name={i.name}
@@ -34,9 +35,11 @@ function Boxlist() {
           onChange={() => handleCheckboxCheck(i)}
         />
       ))}
-      <span>{checkArray.checktions.map((ii) => ii.name)}</span>
+      <span className={styles.gridicon}>
+        {checkArray.checktions.map((ii) => ii.name)}
+      </span>
     </div>
   );
 }
 
-export default Boxlist;
+export default checkboxlist;

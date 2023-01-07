@@ -1,17 +1,18 @@
-.box {
-    display: flex;
-/* flex-direction: column; */
+.gridc {
+    display: grid;
+
+    position: relative;
+ grid-template-columns: repeat(8, 1fr);
+grid-template-rows: 2; 
 }
-.boxicon {display: inline-block;}
 
 .container {
     position: relative;
-    display: flex;
     align-items: center;
 }
 
 .lab {
-    /* position: absolute; */
+    position: absolute;
     left: 5rem;
 }
 

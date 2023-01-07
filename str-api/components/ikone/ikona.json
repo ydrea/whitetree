@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_ikone_ikonas",
+  "info": {
+    "name": "ikona",
+    "icon": "apple-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ikon": {
+      "type": "string"
+    },
+    "Vt": {
+      "type": "boolean"
+    },
+    "Vg": {
+      "type": "boolean"
+    },
+    "Kt": {
+      "type": "boolean"
+    },
+    "Pl": {
+      "type": "boolean"
+    },
+    "Gf": {
+      "type": "boolean"
+    },
+    "Or": {
+      "type": "boolean"
+    },
+    "Ls": {
+      "type": "boolean"
+    },
+    "Af": {
+      "type": "boolean"
+    }
+  }
+}

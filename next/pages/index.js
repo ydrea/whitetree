@@ -2,7 +2,7 @@ import Head from "next/head";
 //
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>THE WHITE TREE</title>
         <meta
@@ -14,6 +14,6 @@ export default function Home() {
       <producers />
       <restaurants />
       <menus /> */}
-    </div>
+    </>
   );
 }
