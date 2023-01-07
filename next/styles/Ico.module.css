@@ -1,19 +1,19 @@
 .gridc {
     display: grid;
-
     position: relative;
  grid-template-columns: repeat(8, 1fr);
-grid-template-rows: 2; 
+ grid-gap: 0;
 }
 
 .container {
     position: relative;
-    align-items: center;
 }
 
 .lab {
+    display: inline;
     position: absolute;
-    left: 5rem;
+    top: 3rem;
+    left: -0rem;
 }
 
 .init {

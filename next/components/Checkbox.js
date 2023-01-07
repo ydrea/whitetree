@@ -30,7 +30,7 @@ const Checkbox = ({ icon, id, name, value, onChange }) => {
           width={48}
           className={styles.done}
         />
-        <span className={styles.lab}>: {id} :</span>
+        <span className={styles.lab}>{id}</span>
       </label>{" "}
     </div>
   );

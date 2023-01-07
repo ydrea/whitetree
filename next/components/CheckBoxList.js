@@ -23,19 +23,25 @@ function Boxlist() {
   };
 
   return (
-    <div className={styles.gridc}>
-      {item.map((i) => (
-        <Checkbox
-          id={`ckb${i.id}`}
-          key={i.id}
-          name={i.name}
-          icon={i.icns}
-          value={checkArray.checktions.includes(i)}
-          onChange={() => handleCheckboxCheck(i)}
-        />
-      ))}
-      <span>{checkArray.checktions.map((ii) => ii.name)}</span>
-    </div>
+    <>
+      <div className={styles.gridc}>
+        {item.map((i) => (
+          <Checkbox
+            id={`ckb${i.id}`}
+            key={i.id}
+            name={i.name}
+            icon={i.icns}
+            value={checkArray.checktions.includes(i)}
+            onChange={() => handleCheckboxCheck(i)}
+          />
+        ))}
+      </div>{" "}
+      <div className={styles.lab}>
+        {checkArray.checktions.map((ii) => (
+          <div>{ii.name}</div>
+        ))}
+      </div>
+    </>
   );
 }
 
