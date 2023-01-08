@@ -1,10 +1,10 @@
-.gridc {
+.gridFilter {
     display: grid;
     position: relative;
- grid-template-columns: repeat(8, 1.5fr);
- grid-gap: 0;
- grid-auto-rows: minmax(68px, auto);
-}
+    grid-template-columns: repeat(8, 1.5fr);
+    grid-gap: 0;
+    grid-auto-rows: minmax(90px, auto);
+ }
 
 
 .lab {
