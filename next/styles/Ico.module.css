@@ -1,8 +1,13 @@
 .gridc {
     display: grid;
     position: relative;
- grid-template-columns: repeat(8, 1fr);
+ grid-template-columns: repeat(8, 1.5fr);
  grid-gap: 0;
+ grid-auto-rows: minmax(60px, auto);
+}
+.gridl {display: grid;
+position: absolute;
+top: 4rem;
 }
 
 .container {
@@ -10,7 +15,8 @@
 }
 
 .lab {
-    display: inline;
+    /* display: flex;
+    flex-wrap: wrap; */
     position: absolute;
     top: 3rem;
     left: -0rem;

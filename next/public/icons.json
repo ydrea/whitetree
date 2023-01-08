@@ -1,21 +1,23 @@
 {
   "icons": [
     {
-      "name": "VG",
-      "shortname": "vegan",
-      "longname": "Vegan",
-      "id": 1,
-      "icns": ["vg-.svg", "vg.svg", "vg+.svg"]
-    },
-    {
       "name": "VT",
-      "shortname": "vegetarian",
+      "shortname": "vege-tarian",
       "longname": "Vegetarian",
-      "id": 2,
+      "id": 1,
       "icns": ["vt-.svg", "vt.svg", "vt+.svg"]
     },
     {
+      "name": "VG",
+      "shortname": "vegan",
+      "longname": "Vegan",
+      "id": 2,
+      "icns": ["vg-.svg", "vg.svg", "vg+.svg"]
+    },
+
+    {
       "name": "KT",
+      "shortname": "keto",
       "longname": "Keto",
       "id": 3,
       "icns": ["kt-.svg", "kt.svg", "kt+.svg"]
@@ -50,7 +52,7 @@
     },
     {
       "name": "AF",
-      "shortname": "affordable",
+      "shortname": "afford-able",
       "longname": "Affordable",
       "id": 8,
       "icns": ["af-.svg", "af.svg", "af+.svg"]

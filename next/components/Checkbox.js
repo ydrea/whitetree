@@ -1,10 +1,8 @@
 import styles from "../styles/Ico.module.css";
-import Image from "next/image";
 
 //
-
-const Checkbox = ({ icon, id, name, value, onChange }) => {
-  // console.log(icon, id);
+const Checkbox = ({ short, icon, id, name, value, onChange }) => {
+  console.log(icon, value);
   return (
     //prettier-ignore
     <div className={styles.container}>
@@ -14,23 +12,23 @@ const Checkbox = ({ icon, id, name, value, onChange }) => {
       <label htmlFor={id}>
         <img
           src={`${name}/${icon[0]}`}
-          height={48}
-          width={48}
+          height={68}
+          width={68}
           className={styles.init}
         />
         <img
           src={`${name}/${icon[1]}`}
-          height={48}
-          width={48}
+          height={68}
+          width={68}
           className={styles.hover}
         />
         <img
           src={`${name}/${icon[2]}`}
-          height={48}
-          width={48}
+          height={68}
+          width={68}
           className={styles.done}
         />
-        <span className={styles.lab}>{id}</span>
+        <span className={styles.gridl}>{short}</span>
       </label>{" "}
     </div>
   );

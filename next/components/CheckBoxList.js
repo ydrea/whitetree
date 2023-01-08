@@ -7,7 +7,7 @@ import styles from "../styles/Ico.module.css";
 
 function Boxlist() {
   const item = icons.icons;
-
+  console.log(item);
   const [checkArray, checkArraySet] = useState({ checktions: [] });
 
   const handleCheckboxCheck = (key) => {
@@ -27,6 +27,7 @@ function Boxlist() {
       <div className={styles.gridc}>
         {item.map((i) => (
           <Checkbox
+            short={i.shortname}
             id={`ckb${i.id}`}
             key={i.id}
             name={i.name}
