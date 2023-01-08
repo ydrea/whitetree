@@ -5,23 +5,17 @@
  grid-gap: 0;
  grid-auto-rows: minmax(68px, auto);
 }
-.gridl {display: grid;
 
- grid-template-columns: repeat(8, 1.5fr);
- grid-gap: 0;
- grid-auto-rows: minmax(68px, auto);
-position: absolute;
-top: 4rem;
+
+.lab {
+    position: absolute;
+top: 3.2rem;
 }
 
 .container {
     position: relative;
 }
 
-.lab {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 .init {
     position: absolute;

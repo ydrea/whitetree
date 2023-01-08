@@ -3,6 +3,8 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
+import CheckBoxList from "../components/CheckBoxList";
+
 //
 
 export async function getServerSideProps(context) {
@@ -23,6 +25,7 @@ function restaurants({ items }) {
   console.log(items);
   return (
     <div>
+      <CheckBoxList />
       <h3>restaurants</h3>
       <span>
         {" "}

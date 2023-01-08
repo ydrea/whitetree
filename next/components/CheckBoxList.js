@@ -36,11 +36,9 @@ function Boxlist() {
             onChange={() => handleCheckboxCheck(i)}
           />
         ))}
-        <div className={styles.gridl}>
-          {checkArray.checktions.map((ii) => (
-            <div className={styles.lab}>{ii.name}</div>
-          ))}
-        </div>{" "}
+        {/* {checkArray.checktions.map((ii) => (
+          <div>{ii.shortname}</div>
+        ))} */}
       </div>{" "}
     </>
   );
