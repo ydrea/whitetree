@@ -28,7 +28,9 @@ const Checkbox = ({ short, icon, id, name, value, onChange }) => {
           width={68}
           className={styles.done}
         />
-        <span className={styles.gridl}>{short}</span>
+        <span className={styles.gridl}>
+          <p className={styles.lab}>{short}</p>
+        </span>
       </label>{" "}
     </div>
   );

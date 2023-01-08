@@ -3,9 +3,13 @@
     position: relative;
  grid-template-columns: repeat(8, 1.5fr);
  grid-gap: 0;
- grid-auto-rows: minmax(60px, auto);
+ grid-auto-rows: minmax(68px, auto);
 }
 .gridl {display: grid;
+
+ grid-template-columns: repeat(8, 1.5fr);
+ grid-gap: 0;
+ grid-auto-rows: minmax(68px, auto);
 position: absolute;
 top: 4rem;
 }
@@ -15,11 +19,8 @@ top: 4rem;
 }
 
 .lab {
-    /* display: flex;
-    flex-wrap: wrap; */
-    position: absolute;
-    top: 3rem;
-    left: -0rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .init {

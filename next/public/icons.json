@@ -2,7 +2,7 @@
   "icons": [
     {
       "name": "VT",
-      "shortname": "vege-tarian",
+      "shortname": "vegetarian",
       "longname": "Vegetarian",
       "id": 1,
       "icns": ["vt-.svg", "vt.svg", "vt+.svg"]
@@ -52,7 +52,7 @@
     },
     {
       "name": "AF",
-      "shortname": "afford-able",
+      "shortname": "affordable",
       "longname": "Affordable",
       "id": 8,
       "icns": ["af-.svg", "af.svg", "af+.svg"]
