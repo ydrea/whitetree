@@ -1,13 +1,25 @@
 .gridFilter {
     display: grid;
+    grid-auto-flow: row;
     position: relative;
-    grid-template-columns: repeat(8, 1.5fr);
-    grid-gap: 0;
-    grid-auto-rows: minmax(90px, auto);
+    padding: 1rem;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-flow: column;
+    /* grid-gap: 5px; */
+    /* border: 2px solid; */
+    grid-auto-rows: minmax(60px, auto);
+ }
+ .gridItem {
+    padding: 11px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
  }
 
 .lab {
-    position: absolute;
+    font-size: 16px;
+    position: absolute; 
+    word-break: break-all;
 top: 3.2rem;
 }
 
@@ -19,7 +31,6 @@ top: 7.2rem;
 .container {
     position: relative;
 }
-
 
 .init {
     position: absolute;

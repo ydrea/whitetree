@@ -27,6 +27,7 @@ function Boxlist() {
       <div className={styles.gridFilter}>
         {item.map((i) => (
           <Checkbox
+            className={styles.gridItem}
             short={i.shortname}
             id={`ckb${i.id}`}
             key={i.id}

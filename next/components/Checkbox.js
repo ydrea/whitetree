@@ -9,7 +9,7 @@ const Checkbox = ({ short, icon, id, name, value, onChange }) => {
       <input className={styles.ckb} id={id} name={name} type="checkbox"
         checked={value} onChange={onChange}
       />
-      <label htmlFor={id}>
+      <label className={styles.gridItem} htmlFor={id}>
         <img
           src={`${name}/${icon[0]}`}
           height={68}
@@ -29,8 +29,8 @@ const Checkbox = ({ short, icon, id, name, value, onChange }) => {
           className={styles.done}
         />
       
+      <span className={styles.lab}>{short}</span>
       </label>{" "}
-        <div className={styles.lab}>{short}</div>
     </div>
   );
 };
