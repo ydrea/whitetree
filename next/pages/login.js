@@ -3,8 +3,9 @@ import Router from "next/router";
 import { setCookie } from "nookies";
 import { useState, useContext, useEffect } from "react";
 import { HeaderContext } from "../context/HeaderContext";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/Login.module.css";
+import { upDate } from "../redux/userSlice";
 //
 
 //
@@ -14,7 +15,8 @@ export default function Login() {
   const [email, emailSet] = useState("");
   const [pass, passSet] = useState("");
 
-  const { user, userSet } = useContext(HeaderContext);
+  const userEmail = useSelector((state) => state.user.email);
+  // const { userX, userXSet } = useContext(HeaderContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +24,9 @@ export default function Login() {
       identifier: email,
       password: pass,
     };
-    //
+
+    dispatch(upDate(email));
+
     const login = await fetch(`http://localhost:1337/auth/local`, {
       method: "POST",
       headers: {
@@ -39,8 +43,9 @@ export default function Login() {
       maxAge: 60 * 60 * 24 * 365,
       path: "/",
     });
-    userSet(email);
-    Router.push("/menus");
+    // userXSet(email);
+
+    Router.push("/icon");
   };
   // //
   // useEffect(() => {

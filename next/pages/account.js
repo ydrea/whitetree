@@ -2,7 +2,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { destroyCookie, parseCookies } from "nookies";
 import { useContext, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { HeaderContext } from "../context/HeaderContext";
+import { deLete } from "../redux/userSlice";
 import { parseJwt } from "../utils/parseJwt";
 import { useOrders } from "../utils/useOrders";
 // //
@@ -10,20 +12,23 @@ import { useOrders } from "../utils/useOrders";
 export default function account({ jwt }) {
   const { orders, loading } = useOrders();
   const [, userIdSet] = useState();
-  //
-  const { user, userSet } = useContext(HeaderContext);
+  // //
+  // const { user, userSet } = useContext(HeaderContext);
   // console.log("AccProps", userId);
+  const userEmail = useSelector((state) => state.user.email);
+  const dispatch = useDispatch();
 
   const logoutUser = () => {
     destroyCookie(null, "jwt");
     console.log("Logout", jwt);
-    userSet([]);
+    // userSet([]);
     userIdSet();
+    dispatch(deLete(userEmail));
     // console.log("Logout", user);
   };
 
   //
-  if (!user) {
+  if (!userEmail) {
     return (
       <div>
         <p>Please Login or Register before accessing this page</p>
@@ -51,7 +56,7 @@ export default function account({ jwt }) {
         </div>
       ))}
       <hr />
-      <p>Logged in as userId {user}</p>
+      <p>Logged in as userId {userEmail}</p>
       <p>
         <a href="#" onClick={logoutUser}>
           Logout

@@ -6,10 +6,14 @@
     grid-auto-rows: minmax(90px, auto);
  }
 
-
 .lab {
     position: absolute;
 top: 3.2rem;
+}
+
+.moni {
+    position: absolute;
+top: 7.2rem;
 }
 
 .container {

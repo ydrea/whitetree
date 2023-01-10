@@ -6,9 +6,9 @@ const iconSlice = createSlice({
   name: "icon",
   //prettier-ignore
   initialState: [
-    {id:1,title: 'vegan', relURL: '/uploads/vg_f9075a35c3.svg', checked: false},
-    {id:2,title: 'local', relURL: '/uploads/ls_265521672a.svg', checked: false},
-    {id:3,title: 'gluten-', relURL: '/uploads/gf_29fbacaf4a.svg', checked: false},
+  { id: 1, title: "medo", checked: true },
+  { id: 2, title: "zeko", checked: true },
+  { id: 3, title: "mukvica", checked: true },
 ],
   reducers: {
     toggleChecked: (state, action) => {

@@ -3,18 +3,15 @@ import { useRouter } from "next/router";
 // import { parseCookies } from "nookies";
 import styles from "../styles/Header.module.css";
 import { useContext, useEffect } from "react";
-import { HeaderContext } from "../context/HeaderContext";
-
-// // TO DO >> contextualize Header
-// import NavContext from "../context/NavContext";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const router = useRouter();
   const isHome = router.pathname === "/";
-  const { user, userSet } = useContext(HeaderContext);
+  const userEmail = useSelector((state) => state.user.email);
 
   useEffect(() => {
-    console.log("Header", user);
+    console.log("Header", userEmail);
   });
 
   const goBack = (event) => {
@@ -90,11 +87,11 @@ export default function Header() {
       </div>
       <div className={styles.auth}>
         {/* login indicator */}
-        {user !== null ? (
+        {userEmail !== null ? (
           <>
             <Link href="/account">
               <a>
-                account {user}
+                account {userEmail}
                 <img src="/user_avatar.png" alt={"alt"} />
               </a>
             </Link>
@@ -108,7 +105,3 @@ export default function Header() {
     </div>
   );
 }
-
-// Header.getInitialProps = async (context) => {
-//   console.log(context);
-// };
