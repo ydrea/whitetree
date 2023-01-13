@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Checkbox from "../components/Checkbox";
 import icons from "../public/icons.json";
-import { toggleFav } from "../redux/iconSlice";
 import styles from "../styles/Ico.module.css";
 
 //
@@ -10,16 +8,6 @@ import styles from "../styles/Ico.module.css";
 function Boxlist() {
   const item = icons.icons;
   console.log(item);
-  const dispatch = useDispatch();
-
-  const handleFavCheck = () => {
-    dispatch(
-      toggleFav({
-        id: id,
-        fav: !fav,
-      })
-    );
-  };
 
   return (
     <>
@@ -33,7 +21,6 @@ function Boxlist() {
             name={i.name}
             icon={i.icns}
             value={i.fav}
-            onChange={() => handleFavCheck()}
           />
         ))}
         {/* {checkArray.checktions.map((ii) => (

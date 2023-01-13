@@ -22,8 +22,16 @@ export const getEmAsync = createAsyncThunk(
 );
 const iconSlice = createSlice({
   name: "icon",
-  //prettier-ignore
-  initialState: {id:[], fav:false},
+  initialState: [
+    { id: 1, fav: false },
+    { id: 2, fav: false },
+    { id: 3, fav: false },
+    { id: 4, fav: false },
+    { id: 5, fav: false },
+    { id: 6, fav: false },
+    { id: 7, fav: false },
+    { id: 8, fav: false },
+  ],
   reducers: {
     toggleFav: (state, action) => {
       const idX = state.findIndex((i) => i.id === action.payload.id);
