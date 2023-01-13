@@ -1,12 +1,17 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { createWrapper } from "next-redux-wrapper";
 //
-import userReducer from "./userSlice";
-import iconReducer from "./iconSlice";
+import counter from "./counterSlice";
+import users from "./userSlice";
+import icon from "./iconSlice";
 //
-
-export default configureStore({
-  reducer: {
-    user: userReducer,
-    icon: iconReducer,
-  },
+const combinedReducer = combineReducers({
+  counter,
+  users,
+  icon,
 });
+export const makeNextStore = () =>
+  configureStore({
+    reducer: combinedReducer,
+  });
+export const wrapper = createWrapper(makeNextStore);

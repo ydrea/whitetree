@@ -1,23 +1,38 @@
-import { createSlice } from "@reduxjs/toolkit";
-import Image from "next/image";
-import { API_URL } from "../utils/urls";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { API_URL, fromImageToUrl } from "../utils/urls";
 
+export const getEmAsync = createAsyncThunk(
+  "callEm",
+  async (payload, context) => {
+    const jwt = parseCookies(context).jwt;
+
+    const resp = await fetch(`${API_URL}/icons`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    });
+    if (resp.ok) {
+      const icon = await resp.json();
+      return { icon };
+    } else {
+      return "anxious";
+    }
+  }
+);
 const iconSlice = createSlice({
   name: "icon",
   //prettier-ignore
-  initialState: [
-  { id: 1, title: "medo", checked: true },
-  { id: 2, title: "zeko", checked: true },
-  { id: 3, title: "mukvica", checked: true },
-],
+  initialState: {id:[], fav:false},
   reducers: {
-    toggleChecked: (state, action) => {
-      const idX = state.findIndex((icon) => icon.id === action.payload.id);
-      state[idX].checked = action.payload.checked;
+    toggleFav: (state, action) => {
+      const idX = state.findIndex((i) => i.id === action.payload.id);
+      console.log(idX);
+      state[idX].fav = action.payload.fav;
     },
   },
 });
 
-export const { toggleChecked } = iconSlice.actions;
+export const { toggleFav } = iconSlice.actions;
 
 export default iconSlice.reducer;

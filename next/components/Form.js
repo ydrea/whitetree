@@ -1,13 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "../styles/Form.module.css";
 import { API_URL } from "../utils/urls";
-import { HeaderContext } from "../context/HeaderContext";
 //
 function Form({ jwt, user }) {
   const [ime, imeSet] = useState("");
   const [description, descriptionSet] = useState("");
   const [loading, setLoading] = useState(false);
-  // const user = useContext(HeaderContext);
 
   const url = API_URL + "/menus";
   // //

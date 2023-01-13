@@ -2,22 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 
 //user
 const userSlice = createSlice({
-  name: "user",
+  name: "users",
   initialState: {
-    email: "tester@test.com",
+    email: "tester",
     pass: "123456",
   },
 
   reducers: {
-    addIt: (state, action) => {},
+    addIt: (state, action) => {
+      state.users = [...state.users, action.payload];
+    },
     upDate: (state, action) => {
       state.email = action.payload.email;
       state.pass = action.payload.pass;
     },
-    deLete: (state) => {
-      state: {
-      }
-    },
+    deLete: (state) => (state = {}),
   },
 });
 

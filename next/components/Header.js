@@ -2,13 +2,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 // import { parseCookies } from "nookies";
 import styles from "../styles/Header.module.css";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
+//
+
+//
 
 export default function Header() {
   const router = useRouter();
   const isHome = router.pathname === "/";
-  const userEmail = useSelector((state) => state.user.email);
+  const userEmail = useSelector((state) => state.users.email);
 
   useEffect(() => {
     console.log("Header", userEmail);
@@ -46,9 +49,9 @@ export default function Header() {
         </div>
 
         <div className={styles.title}>
-          <Link href="/icons">
+          <Link href="/icon">
             <a>
-              <h3 className={styles.protected}>icons</h3>
+              <h3 className={styles.protected}>icon</h3>
             </a>
           </Link>
         </div>

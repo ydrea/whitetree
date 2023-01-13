@@ -2,11 +2,9 @@ import { parseCookies } from "nookies";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../styles/globals.css";
-import { HeaderContextWrapper } from "../context/HeaderContext";
 import Router from "next/router";
 //
-import store from "../redux/store";
-import { Provider } from "react-redux";
+import { wrapper } from "../redux/store";
 //
 
 function MyApp({ Component, pageProps }) {
@@ -14,15 +12,14 @@ function MyApp({ Component, pageProps }) {
   console.log("PageProps", pageProps);
 
   return (
-    // <NavProvider navigation={navigation}>
     <>
-      <Provider store={store}>
-        <HeaderContextWrapper>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-        </HeaderContextWrapper>
-      </Provider>
+      {/* <Provider store={store}>
+        <HeaderContextWrapper> */}
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
+      {/* </HeaderContextWrapper>
+      </Provider> */}
     </>
     // </NavProvider>
   );
@@ -57,4 +54,4 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   };
 };
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

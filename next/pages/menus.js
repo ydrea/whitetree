@@ -1,11 +1,10 @@
 // import Head from "next/head";
 import Link from "next/link";
 import { parseCookies } from "nookies";
-import { useContext } from "react";
 import Form from "./form";
-import { HeaderContext } from "../context/HeaderContext";
 import styles from "../styles/Home.module.css";
 import { API_URL, fromImageToUrl } from "../utils/urls";
+import { useSelector, useDispatch } from "react-redux";
 //
 export async function getServerSideProps(context) {
   // console.log(context);
@@ -22,7 +21,7 @@ export async function getServerSideProps(context) {
 //
 function menus({ items, context }) {
   const jwt = parseCookies(context).jwt;
-  const { user, userSet } = useContext(HeaderContext);
+  const { user, userSet } = useSelector();
   console.log("userMenus", user);
 
   return (
