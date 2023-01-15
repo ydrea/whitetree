@@ -1,9 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-const about = () => {
+export const getServerSideProps = () => {
+  return { props: { a: "12" } };
+};
+
+const about = (props) => {
+  const counter = useSelector((state) => state.counter.count);
+  console.log(props);
   return (
     <div>
-      about
+      about {counter}
+      {JSON.stringify(props)}
       <p>
         {" "}
         White Tree is a web portal (B2B) and a mobile app (B2C), aiming to

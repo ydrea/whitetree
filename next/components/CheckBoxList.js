@@ -2,13 +2,30 @@ import React, { useEffect, useState } from "react";
 import Checkbox from "../components/Checkbox";
 import icons from "../public/icons.json";
 import styles from "../styles/Ico.module.css";
+import { useSelector, useDispatch } from "react-redux";
 
+import { toggleChecked, getEm } from "../redux/iconSlice";
 //
 
 function Boxlist() {
+  // useEffect(() => {
+  //   const item = getEm();
+  //   console.log(item);
+  // });
   const item = icons.icons;
-  console.log(item);
+  const dispatch = useDispatch();
 
+  const { id, fav } = useSelector((state) => state.icon);
+
+  const handleFavCheck = () => {
+    console.log(id, fav);
+    dispatch(
+      toggleChecked({
+        id: id,
+        fav: !fav,
+      })
+    );
+  };
   return (
     <>
       <div className={styles.gridFilter}>
@@ -20,7 +37,8 @@ function Boxlist() {
             key={i.id}
             name={i.name}
             icon={i.icns}
-            value={i.fav}
+            checked={i.fav}
+            onChange={() => handleFavCheck()}
           />
         ))}
         {/* {checkArray.checktions.map((ii) => (

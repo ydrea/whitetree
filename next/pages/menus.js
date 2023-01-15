@@ -5,6 +5,7 @@ import Form from "./form";
 import styles from "../styles/Home.module.css";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 import { useSelector, useDispatch } from "react-redux";
+// import {userSlice}
 //
 export async function getServerSideProps(context) {
   // console.log(context);
@@ -21,8 +22,8 @@ export async function getServerSideProps(context) {
 //
 function menus({ items, context }) {
   const jwt = parseCookies(context).jwt;
-  const { user, userSet } = useSelector();
-  console.log("userMenus", user);
+  // const { user, userSet } = useSelector();
+  // console.log("userMenus", user);
 
   return (
     <div>

@@ -1,27 +1,19 @@
 import styles from "../styles/Ico.module.css";
 
-import { toggleFav } from "../redux/iconSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 //
-const Checkbox = ({ short, icon, id, name, fav }) => {
-  console.log(icon, fav);
+const Checkbox = ({ short, icon, id, name, checked, fav }) => {
+  console.log(icon, checked, fav);
   const dispatch = useDispatch();
 
-  const handleFavCheck = () => {
-    dispatch(
-      toggleFav({
-        id: id,
-        fav: !fav,
-      })
-    );
-  };
   return (
     //prettier-ignore
     <div className={styles.container}>
       <input className={styles.ckb} id={id} name={name} type="checkbox"
         checked={fav} 
-        onChange={() => handleFavCheck()}
+
+        // onChange={onChange}
       />
       <label className={styles.gridItem} htmlFor={id}>
         <img

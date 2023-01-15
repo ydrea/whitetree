@@ -4,13 +4,19 @@ import styles from "../styles/Home.module.css";
 import { twoDecimals } from "../utils/format";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 import CheckBoxList from "../components/CheckBoxList";
+import { wrapper } from "../redux/store";
+import { increment } from "../redux/counterSlice";
 
-//
+//prettier-ignore
 
-export async function getServerSideProps(context) {
-  // console.log(context);
+export const getServerSideProps = 
+wrapper.getServerSideProps(
+  () => 
+  async () => {
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) = async () => {
   const res = await fetch(`${API_URL}/restaurants/`);
-  console.log(res);
+  // console.log(res);
   const items = await res.json();
   console.log(items);
   return {
@@ -18,7 +24,7 @@ export async function getServerSideProps(context) {
       items,
     },
   };
-}
+});
 
 //
 function restaurants({ items }) {

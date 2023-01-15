@@ -4,14 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import Checkbox from "../components/Checkbox";
 import icons from "../public/icons.json";
 import styles from "../styles/Ico.module.css";
+import { increment, decrement } from "../redux/counterSlice";
+import { getEm } from "../redux/iconSlice";
 
 export default function icon() {
-  const icon = useSelector((state) => state.icon);
+  const stejt = useSelector((state) => state);
+  const counter = useSelector((state) => state.counter.count);
+  const ikone = useSelector((state) => state.icon);
+  const dispatch = useDispatch();
 
   return (
     <>
-      {" "}
-      <p className={styles.moni}>{JSON.stringify(icon[0])}</p>
+      <button onClick={() => dispatch(increment())}>:: + ::</button>
+      {counter}
+      <button onClick={() => dispatch(decrement())}>:: - ::</button>
+      {counter}
+      <p>{JSON.stringify(ikone)}</p>
       <CheckBoxList />
       <hr />
     </>

@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 
+import icons from "../public/icons.json";
+
 export const getEmAsync = createAsyncThunk(
   "callEm",
   async (payload, context) => {
@@ -13,27 +15,28 @@ export const getEmAsync = createAsyncThunk(
       },
     });
     if (resp.ok) {
-      const icon = await resp.json();
-      return { icon };
+      const iconSer = await resp.json();
+      console.log("strAPI=>Slajs", iconSer);
+      return { iconSer };
     } else {
       return "anxious";
     }
   }
 );
+
+const item = icons.icons;
 const iconSlice = createSlice({
   name: "icon",
-  initialState: [
-    { id: 1, fav: false },
-    { id: 2, fav: false },
-    { id: 3, fav: false },
-    { id: 4, fav: false },
-    { id: 5, fav: false },
-    { id: 6, fav: false },
-    { id: 7, fav: false },
-    { id: 8, fav: false },
-  ],
+  initialState: item,
+
   reducers: {
-    toggleFav: (state, action) => {
+    getEm: (state) => {
+      state.icon;
+    },
+    addIt: (state, action) => {
+      [...state.icon, action.payload];
+    },
+    toggleChecked: (state, action) => {
       const idX = state.findIndex((i) => i.id === action.payload.id);
       console.log(idX);
       state[idX].fav = action.payload.fav;
@@ -41,6 +44,6 @@ const iconSlice = createSlice({
   },
 });
 
-export const { toggleFav } = iconSlice.actions;
+export const { toggleChecked, getEm } = iconSlice.actions;
 
 export default iconSlice.reducer;
