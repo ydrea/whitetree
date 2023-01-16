@@ -8,21 +8,15 @@ import { toggleChecked, getEm } from "../redux/iconSlice";
 //
 
 function Boxlist() {
-  // useEffect(() => {
-  //   const item = getEm();
-  //   console.log(item);
-  // });
-  const item = icons.icons;
   const dispatch = useDispatch();
+  const item = useSelector((state) => state.icon);
+  const fav = useSelector((state) => state.icon.fav);
 
-  const { id, fav } = useSelector((state) => state.icon);
-
-  const handleFavCheck = () => {
-    console.log(id, fav);
+  const handleFavCheck = (id) => {
     dispatch(
       toggleChecked({
-        id: id,
         fav: !fav,
+        id: id,
       })
     );
   };
@@ -37,13 +31,13 @@ function Boxlist() {
             key={i.id}
             name={i.name}
             icon={i.icns}
-            checked={i.fav}
-            onChange={() => handleFavCheck()}
+            value={i.fav}
+            onChange={() => handleFavCheck(i.id)}
           />
         ))}
-        {/* {checkArray.checktions.map((ii) => (
-          <div>{ii.shortname}</div>
-        ))} */}
+        {item.map((ii) => (
+          <p>{ii.fav.toString()}</p>
+        ))}
       </div>{" "}
     </>
   );

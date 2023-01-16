@@ -3,17 +3,18 @@ import styles from "../styles/Ico.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
 //
-const Checkbox = ({ short, icon, id, name, checked, fav }) => {
-  console.log(icon, checked, fav);
-  const dispatch = useDispatch();
+const Checkbox = ({ short, icon, id, name, value, onChange }) => {
+  console.log(icon, value, id);
+
+  // const dispatch = useDispatch();
 
   return (
     //prettier-ignore
     <div className={styles.container}>
       <input className={styles.ckb} id={id} name={name} type="checkbox"
-        checked={fav} 
-
-        // onChange={onChange}
+        value={value} 
+        // fav={checked}
+        onChange={onChange}
       />
       <label className={styles.gridItem} htmlFor={id}>
         <img

@@ -16,6 +16,7 @@ export default function Login() {
   const [pass, passSet] = useState("");
 
   const userEmail = useSelector((state) => state.user.email);
+  console.log(userEmail);
   // const { userX, userXSet } = useContext(HeaderContext);
 
   const handleSubmit = async (e) => {

@@ -30,20 +30,17 @@ const iconSlice = createSlice({
   initialState: item,
 
   reducers: {
-    getEm: (state) => {
-      state.icon;
-    },
-    addIt: (state, action) => {
-      [...state.icon, action.payload];
-    },
     toggleChecked: (state, action) => {
-      const idX = state.findIndex((i) => i.id === action.payload.id);
+      const idX = state.findIndex((i) => i.id === action.payload.id + 1);
+      console.log(JSON.stringify(action.payload));
       console.log(idX);
-      state[idX].fav = action.payload.fav;
+      const indX = `ckb${idX}`;
+      console.log(indX);
+      state.icon[indX].fav = action.payload.fav;
     },
   },
 });
 
-export const { toggleChecked, getEm } = iconSlice.actions;
+export const { toggleChecked } = iconSlice.actions;
 
 export default iconSlice.reducer;

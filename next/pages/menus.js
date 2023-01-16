@@ -5,25 +5,28 @@ import Form from "./form";
 import styles from "../styles/Home.module.css";
 import { API_URL, fromImageToUrl } from "../utils/urls";
 import { useSelector, useDispatch } from "react-redux";
+
+import { wrapper } from "../redux/store";
 // import {userSlice}
 //
-export async function getServerSideProps(context) {
-  // console.log(context);
-  const { req } = context;
-  const res = await fetch(`${API_URL}/menus`);
-  const items = await res.json();
-  // console.log(items);
-  return {
-    props: {
-      items,
-    },
-  };
-}
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store, context) => async () => {
+    // console.log(context);
+    const { req } = context;
+    const res = await fetch(`${API_URL}/menus`);
+    const items = await res.json();
+    // console.log(items);
+    return {
+      props: {
+        items,
+      },
+    };
+  }
+);
 //
 function menus({ items, context }) {
   const jwt = parseCookies(context).jwt;
-  // const { user, userSet } = useSelector();
-  // console.log("userMenus", user);
+  const user = useSelector((state) => state.users);
 
   return (
     <div>

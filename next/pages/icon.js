@@ -1,4 +1,4 @@
-import CheckBoxList from "../components/CheckBoxList";
+import Boxlist from "../components/CheckBoxList";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Checkbox from "../components/Checkbox";
@@ -11,7 +11,10 @@ export default function icon() {
   const stejt = useSelector((state) => state);
   const counter = useSelector((state) => state.counter.count);
   const ikone = useSelector((state) => state.icon);
+  const user = useSelector((state) => state.users);
   const dispatch = useDispatch();
+
+  //
 
   return (
     <>
@@ -19,8 +22,9 @@ export default function icon() {
       {counter}
       <button onClick={() => dispatch(decrement())}>:: - ::</button>
       {counter}
-      <p>{JSON.stringify(ikone)}</p>
-      <CheckBoxList />
+      <p>{JSON.stringify(stejt)}</p>
+      <p>{JSON.stringify(user)}</p>
+      <Boxlist />
       <hr />
     </>
   );
