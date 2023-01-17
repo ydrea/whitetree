@@ -27,20 +27,20 @@ export const getEmAsync = createAsyncThunk(
 const item = icons.icons;
 const iconSlice = createSlice({
   name: "icon",
+  //prettier-ignore
   initialState: item,
-
   reducers: {
     toggleChecked: (state, action) => {
-      const idX = state.findIndex((i) => i.id === action.payload.id + 1);
-      console.log(JSON.stringify(action.payload));
+      const idX = state.findIndex((i) => i.id === action.payload.id);
       console.log(idX);
-      const indX = `ckb${idX}`;
-      console.log(indX);
-      state.icon[indX].fav = action.payload.fav;
+      console.log(JSON.stringify(action.payload));
+      console.log(JSON.stringify(state[idX].fav));
+      state[idX].fav = action.payload.fav;
     },
   },
 });
 
 export const { toggleChecked } = iconSlice.actions;
+export const selectIcon = (state) => state.icon;
 
 export default iconSlice.reducer;

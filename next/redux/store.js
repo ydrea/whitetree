@@ -1,5 +1,4 @@
 // import { combineReducers, configureStore } from "@reduxjs/toolkit";
-// import { createWrapper } from "next-redux-wrapper";
 //
 import counter from "./counterSlice";
 import users from "./userSlice";
@@ -14,7 +13,7 @@ import icon from "./iconSlice";
 //   configureStore({
 //     reducer: combinedReducer,
 //   });
-// export const wrapper = createWrapper(makeStore, { debug: true });
+// export const wrapper = makeStore;
 
 /*
 MODEL
