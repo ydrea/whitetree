@@ -1,37 +1,36 @@
 import Head from "next/head";
 import Link from "next/link";
 import { destroyCookie, parseCookies } from "nookies";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { HeaderContext } from "../context/HeaderContext";
-import { deLete } from "../redux/userSlice";
+import { deLete, selectUser } from "../redux/userSlice";
 import { parseJwt } from "../utils/parseJwt";
 import { useOrders } from "../utils/useOrders";
 // //
 
-export default function account({ jwt }) {
+export default function account({ jwt, userId }) {
+  console.log(JSON.stringify(userId));
   const { orders, loading } = useOrders();
   const [, userIdSet] = useState();
   // //
-  // const { user, userSet } = useContext(HeaderContext);
-  // console.log("AccProps", userId);
-  const userEmail = useSelector((state) => state.user.email);
+  const { email, pass } = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const logoutUser = () => {
     destroyCookie(null, "jwt");
-    console.log("Logout", jwt);
-    // userSet([]);
-    userIdSet();
-    dispatch(deLete(userEmail));
+    userIdSet(null);
+    dispatch(deLete(email));
     // console.log("Logout", user);
   };
 
   //
-  if (!userEmail) {
+  if (!email) {
     return (
       <div>
-        <p>Please Login or Register before accessing this page</p>
+        <p>
+          Please {<Link href="/login">Login</Link>} or{" "}
+          {<Link href="/register">Register</Link>} before accessing this page
+        </p>
         <Link href="/">
           <a>Go Back</a>
         </Link>
@@ -56,7 +55,7 @@ export default function account({ jwt }) {
         </div>
       ))}
       <hr />
-      <p>Logged in as userId {userEmail}</p>
+      <p>Logged in as userId {email}</p>
       <p>
         <a href="#" onClick={logoutUser}>
           Logout

@@ -5,28 +5,28 @@ import { useState, useContext, useEffect } from "react";
 import { HeaderContext } from "../context/HeaderContext";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/Login.module.css";
-import { upDate } from "../redux/userSlice";
+import { deLete, selectUser, upDate } from "../redux/userSlice";
 //
 
 //
 export default function Login() {
   //
   const dispatch = useDispatch();
-  const [email, emailSet] = useState("");
-  const [pass, passSet] = useState("");
+  const [mail, emailSet] = useState("");
+  const [pwd, passSet] = useState("");
 
-  const userEmail = useSelector((state) => state.user.email);
-  console.log(userEmail);
+  const { email, pass } = useSelector(selectUser);
+  console.log(email);
   // const { userX, userXSet } = useContext(HeaderContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const logINfo = {
-      identifier: email,
-      password: pass,
+      identifier: mail,
+      password: pwd,
     };
 
-    dispatch(upDate(email));
+    dispatch(upDate(user));
 
     const login = await fetch(`http://localhost:1337/auth/local`, {
       method: "POST",
@@ -65,14 +65,14 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <input
           className={styles.input}
-          value={email}
+          value={mail}
           onChange={(e) => emailSet(e.target.value)}
           type="email"
           placeholder="Email address..."
         />
         <input
           className={styles.input}
-          value={pass}
+          value={pwd}
           onChange={(e) => passSet(e.target.value)}
           type="password"
           placeholder="Password..."
