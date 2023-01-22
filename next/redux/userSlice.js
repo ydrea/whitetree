@@ -7,7 +7,7 @@ const userSlice = createSlice({
     loading: false,
     error: null,
     success: false,
-    user: {},
+    user: [],
     token: null,
   },
   reducers: {
@@ -24,5 +24,6 @@ const userSlice = createSlice({
 
 export const { addIt, upDate, deLete } = userSlice.actions;
 export const selectUser = (state) => state.users.user;
+console.log(selectUser);
 
 export default userSlice.reducer;

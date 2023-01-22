@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "../styles/Form.module.css";
 import { API_URL } from "../utils/urls";
-import { HeaderContext } from "../context/HeaderContext";
+import { wrapper } from "../redux/store";
 import { parseJwt } from "../utils/parseJwt";
 import { destroyCookie, parseCookies } from "nookies";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/userSlice";
 //
 function form({ jwt }) {
   const [ime, imeSet] = useState("");
@@ -11,7 +13,8 @@ function form({ jwt }) {
   const [loading, setLoading] = useState(false);
   //
   // const jwt = parseCookies(context).jwt;
-  const { user, userSet } = useContext(HeaderContext);
+  // const { user, userSet } = useContext(HeaderContext);
+  const user = useSelector(selectUser);
   console.log("userMenus", user);
 
   const url = API_URL + "/menus";

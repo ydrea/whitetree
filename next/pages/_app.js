@@ -3,8 +3,9 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../styles/globals.css";
 import Router from "next/router";
+import { Provider } from "react-redux";
 //
-import { wrapper } from "../redux/store";
+import { store } from "../redux/store";
 //
 
 function MyApp({ Component, pageProps }) {
@@ -13,13 +14,11 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* <Provider store={store}>
-        <HeaderContextWrapper> */}
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-      {/* </HeaderContextWrapper>
-      </Provider> */}
+      <Provider store={store}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </Provider>
     </>
     // </NavProvider>
   );
@@ -54,4 +53,4 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   };
 };
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;

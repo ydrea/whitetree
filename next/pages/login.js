@@ -15,9 +15,10 @@ export default function Login() {
   const [mail, emailSet] = useState("");
   const [pwd, passSet] = useState("");
 
+  const user = useSelector(selectUser);
+  console.log(user);
   const { email, pass } = useSelector(selectUser);
   console.log(email);
-  // const { userX, userXSet } = useContext(HeaderContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

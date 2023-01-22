@@ -12,7 +12,7 @@ import { wrapper } from "../redux/store";
 export const getServerSideProps = wrapper.getServerSideProps(
   (store, context) => async () => {
     // console.log(context);
-    const { req } = context;
+    // const { req } = context;
     const res = await fetch(`${API_URL}/menus`);
     const items = await res.json();
     // console.log(items);
