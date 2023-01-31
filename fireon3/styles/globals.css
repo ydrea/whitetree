@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: linear-gradient(to bottom, olive, rgba(233, 248, 61, 0.6));
+}
+
+body {
+  background: white;
+  max-width: 85%;
+  min-height: 100%;
+  margin: auto;
+  font-family: "Itim", sans-serif;
+}
