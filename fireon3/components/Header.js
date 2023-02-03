@@ -1,19 +1,18 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-// import { parseCookies } from "nookies";
 import styles from "../styles/Header.module.css";
 import { useEffect } from "react";
 //
-
+import { useAuth } from "../context/authContext";
 //
-
 export default function Header() {
   const router = useRouter();
   const isHome = router.pathname === "/";
-  const userEmail = "tester";
+
+  const { currentUser } = useAuth();
 
   useEffect(() => {
-    console.log("Header", userEmail);
+    console.log("Header", currentUser);
   });
 
   const goBack = (event) => {
@@ -75,11 +74,15 @@ export default function Header() {
       </div>
       <div className={styles.auth}>
         {/* login indicator */}
-        {userEmail !== null ? (
+        {currentUser !== null ? (
           <>
             <Link href="/account">
-              account {userEmail}
-              <img src="/user_avatar.png" alt={"alt"} />
+              <i class="fa-brands fa-d-and-d"> </i>
+              <p>&#9733;</p>
+              <p>&#9734;</p>
+              <p>&#11240;</p>
+              <p>&#10026;</p>
+              <i class="fa fa-star-half-full"></i>
             </Link>
           </>
         ) : (

@@ -1,15 +1,14 @@
 import "../styles/globals.css";
+import { AuthProvider } from "../context/authContext";
 import Layout from "../components/Layout";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Header />
-      <Component {...pageProps} />;
-      <Footer />
-    </Layout>
+    <AuthProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </AuthProvider>
   );
 }
 

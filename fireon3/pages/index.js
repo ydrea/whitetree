@@ -1,9 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
 import Login from "../components/Login";
+import Account from "../components/Account";
+import { useAuth } from "../context/authContext";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const { currentUser } = useAuth();
+  console.log(currentUser);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,11 +18,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Login />
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        {!currentUser && <Login />}
+        {currentUser && <Account />}
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
