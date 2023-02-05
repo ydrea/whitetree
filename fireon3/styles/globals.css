@@ -16,3 +16,6 @@ body {
   margin: auto;
   font-family: "Itim", sans-serif;
 }
+a {
+  text-decoration: none;
+}
