@@ -4,27 +4,36 @@ import React, { useState, useEffect } from "react";
 import ReactDom from "react-dom";
 import { useAuth } from "../context/authContext";
 
-export function Mod({ children, open, closeMe }) {
+export function Mod({ open, closeMe }) {
+  const { logout } = useAuth();
+
   if (!open) {
     return null;
   }
-  return ReactDOM.createPortal(
-    <div
-      className="fixed w-screen h-screen top-0 left-0 flex flex-col overflow-x-hidden overflow-y-auto 
-    
-     bg-white bg-opacity-25 "
-    >
-      <div className="flex items-center justify-between border-b border-solid border-olive-900"></div>
-      Modal
-      <button onClick={closeMe}>
-        <i className="fa-solid fa-xmark"></i>
-      </button>
+  return ReactDom.createPortal(
+    <div className="modal fixed inset-0 bg-olive bg-opacity-50 ">
+      <div className="grid h-screen place-items-center">
+        <div className="flex flex-row">
+          Modal
+          <button onClick={closeMe}>
+            <i className="fa-solid fa-xmark"></i>
+          </button>
+          <button
+            onClick={() => {
+              logout();
+              closeMe();
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
     </div>,
     document.getElementById("portal")
   );
 }
 
-export default function Modal(props) {
+export function Modal(props) {
   const { closeMe, open } = props;
   // const [_document, set_document] = useState(null);
   const { logout } = useAuth();

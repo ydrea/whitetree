@@ -6,7 +6,7 @@ import { useAuth } from "../context/authContext";
 import styles from "../styles/Home.module.css";
 
 import { useEffect, useState } from "react";
-import Modal from "../components/Modal";
+import { Mod } from "../components/Modal";
 
 export default function Home() {
   const { currentUser } = useAuth();
@@ -23,9 +23,9 @@ export default function Home() {
       </Head>
 
       <button onClick={() => openModalSet(true)}>open</button>
-      <Modal open={openModal} closeMe={() => openModalSet(false)}>
+      <Mod open={openModal} closeMe={() => openModalSet(false)}>
         dalMo
-      </Modal>
+      </Mod>
 
       <main className={styles.main}>
         {!currentUser && <Login />}
