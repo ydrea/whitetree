@@ -13,7 +13,7 @@ export function Mod({ open, closeMe }) {
   return ReactDom.createPortal(
     <div className="modal fixed inset-0 bg-white bg-opacity-50 backdrop-blur-sm">
       <div className="grid h-screen place-items-center">
-        <div className="flex flex-row">
+        <div className="flex flex-col border-solid border-olive">
           Modal
           <button onClick={closeMe}>
             <i className="fa-solid fa-xmark"></i>

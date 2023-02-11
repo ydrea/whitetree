@@ -42,12 +42,9 @@ export default function Header() {
         {currentUser !== null ? (
           <>
             <Link href="/account">
-              <i class="fa-brands fa-d-and-d"> </i>
+              <i class="fa-regular fa-user"></i>
               <p>&#9733;</p>
               <p>&#9734;</p>
-              <p>&#11240;</p>
-              <p>&#10026;</p>
-              <i class="fa fa-star-half-full"></i>
             </Link>
           </>
         ) : (

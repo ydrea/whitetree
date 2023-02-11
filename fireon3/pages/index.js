@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 
 import { useEffect, useState } from "react";
 import { Mod } from "../components/Modal";
+import Form from "../components/Form";
 
 export default function Home() {
   const { currentUser } = useAuth();
@@ -32,10 +33,10 @@ export default function Home() {
         {currentUser && <Account />}
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <div className={styles.card}>
+            <h5>Form</h5>
+            <Form />
+          </div>
 
           <a href="https://nextjs.org/learn" className={styles.card}>
             <h2>Learn &rarr;</h2>
