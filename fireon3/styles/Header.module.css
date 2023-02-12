@@ -10,6 +10,12 @@
   text-align: center;
   line-height: 24px;
 }
+.title,
+.image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
 .nav {
   position: relative;

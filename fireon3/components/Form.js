@@ -35,7 +35,7 @@ function Form() {
             type="submit"
             value="ADD"
             className=" 
-      border border-solid border-black py-1 mx-3 mb-3 text-center uppercase 
+      border border-solid border-black px-2 py-1 mx-3 mb-3 mt-2 text-center uppercase 
 bg-olive text-white font-medium text-base hover:opacity-80"
           />
         </form>

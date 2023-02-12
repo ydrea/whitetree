@@ -6,7 +6,7 @@ function FormLarge() {
   const [loading, setLoading] = useState(false);
   const [trig, trigSet] = useState(false);
   //
-  const [coment, comentSet] = useState("");
+  const [cement, cementSet] = useState("");
 
   useEffect(() => {
     console.log(currentUser);
@@ -17,10 +17,10 @@ function FormLarge() {
       <div className="flex justify-center">
         <div className="mb-3 xl:w-96">
           <label
-            for="exampleFormControlTextarea1"
+            for="textarea-1"
             class="form-label inline-block mb-2 text-gray-700"
           >
-            Example textarea
+            daj cement!
           </label>
           <textarea
             className="
@@ -40,10 +40,10 @@ function FormLarge() {
           m-0
           focus:text-dblk focus:bg-white focus:border-olive focus:outline-none
         "
-            id="exampleFormControlTextarea1"
+            id="textarea-1"
             rows="5"
-            placeholder="Your message"
-            value={coment}
+            placeholder="Your comment"
+            value={cement}
           ></textarea>
         </div>
       </div>

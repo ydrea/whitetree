@@ -37,7 +37,7 @@ export default function Header() {
             height="120"
             width="140"
             alt="logo"
-            className="flex flex-1"
+            className={styles.image}
           />
           <h3 className={styles.h3}>WHITE TREE</h3>
         </Link>
