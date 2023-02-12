@@ -8,6 +8,7 @@ import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 import { Mod } from "../components/Modal";
 import Form from "../components/Form";
+import FormLarge from "../components/FormLarge";
 
 export default function Home() {
   const { currentUser } = useAuth();
@@ -38,10 +39,12 @@ export default function Home() {
             <Form />
           </div>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          <p className={styles.card}>
+            <h5>Learn &rarr;</h5>
+            <p>
+              <FormLarge />
+            </p>
+          </p>
 
           <a
             href="https://github.com/vercel/next.js/tree/canary/examples"
