@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        paleo: "#e9f83d66",
         olive: "#808000",
         oliv: "#9b9f10",
         oli: "#b5bd1f",

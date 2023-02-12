@@ -12,36 +12,36 @@ function Form() {
   }, []);
 
   return (
-    <div className="w-full max-w-[65ch] text-xs sm:text-sm mx-auto flex flex-col flex-1 gap-3 sm:gap-5">
+    <div className="w-full max-w-[55ch] text-xs sm:text-sm mx-auto flex flex-col flex-1 gap-3 sm:gap-5">
       {currentUser && (
-        <form className="flex-item-stretch" onSubmit={() => postMenus()}>
+        <form className="flex-item-stretch " onSubmit={() => postMenus()}>
           <input
             placeholder="title"
             type="text"
             value={title}
             onChange={(e) => titleSet(e.target.value)}
-            className="outline-olive bg-o p-3 text-base sm:text-lg flex-1"
+            className="outline-olive bg-paleo p-3 text-base sm:text-lg flex-1 mx-3 my-3 max-w-[268px]"
           />
           <input
             placeholder="description"
             type="text"
             value={description}
             onChange={(e) => descriptionSet(e.target.value)}
-            className="outline-olive bg-o p-3 text-base sm:text-lg flex-1"
+            className="outline-olive bg-paleo p-3 text-base sm:text-lg flex-1 mx-3 my-3 max-w-[268px]"
           />
           <input
             type="submit"
             value="ADD"
             className=" 
-      border border-solid border-black py-1 px-1 text-center uppercase 
+      border border-solid border-black py-1 mx-3 text-center uppercase 
 bg-olive text-white font-medium text-base hover:opacity-80"
           />
         </form>
       )}
       <button
         className=" 
-      border border-solid border-black py-1 px-1 text-center uppercase 
-      text-lg hover:opacity-80"
+      border border-solid border-black py-1 mx-3 mb-3 text-center uppercase 
+      text-base hover:opacity-80"
       >
         add article
       </button>
