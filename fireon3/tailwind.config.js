@@ -11,7 +11,7 @@ module.exports = {
         oliv: "#9b9f10",
         oli: "#b5bd1f",
         ol: "#cfda2e",
-        o: "#e9f83d",
+        o: "#e9f83d99",
         a: "#929224",
         ad: "#A4A448",
         add: "#B6B66D",

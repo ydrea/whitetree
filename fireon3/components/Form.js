@@ -20,14 +20,14 @@ function Form() {
             type="text"
             value={title}
             onChange={(e) => titleSet(e.target.value)}
-            className="outline-olive bg-addw p-3 text-base sm:text-lg flex-1"
+            className="outline-olive bg-o p-3 text-base sm:text-lg flex-1"
           />
           <input
             placeholder="description"
             type="text"
             value={description}
             onChange={(e) => descriptionSet(e.target.value)}
-            className="outline-olive bg-addw p-3 text-base sm:text-lg flex-1"
+            className="outline-olive bg-o p-3 text-base sm:text-lg flex-1"
           />
           <input
             type="submit"
