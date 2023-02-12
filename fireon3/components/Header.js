@@ -32,7 +32,13 @@ export default function Header() {
       )}
       <div className={styles.title}>
         <Link href="/">
-          <img src="/glogo.svg" height="150" alt="logo" />
+          <img
+            src="/glogo.svg"
+            height="120"
+            width="140"
+            alt="logo"
+            className="flex flex-1"
+          />
           <h3 className={styles.h3}>WHITE TREE</h3>
         </Link>
       </div>
@@ -42,7 +48,7 @@ export default function Header() {
         {currentUser !== null ? (
           <>
             <Link href="/account">
-              <i class="fa-regular fa-user"></i>
+              <i className="fa-regular fa-user"></i>
               <p>&#9733;</p>
               <p>&#9734;</p>
             </Link>

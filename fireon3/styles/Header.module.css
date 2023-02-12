@@ -1,49 +1,48 @@
-.cntnr{
+.cntnr {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-.title{
-    text-align: center;
-    line-height: 24px;
+.title {
+  text-align: center;
+  line-height: 24px;
 }
 
 .nav {
-    position: relative;
+  position: relative;
 }
 
 .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    line-height: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 24px;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .auth {
-    position: absolute;
-    right: 0;
-    top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .auth img {
-    width: 45px;
-    height: 45px;
+  width: 45px;
+  height: 45px;
 }
 
 .h3 {
-    color: rgb(117,128,0);
-    margin-top: -4px;
-    padding: 8px;
+  color: rgb(117, 128, 0);
+  margin-top: -4px;
+  padding: 8px;
 }
 
-.protected{
-
-    color: orange;
-    margin-top: -4px;
-    padding: 8px;
+.protected {
+  color: orange;
+  margin-top: -4px;
+  padding: 8px;
 }

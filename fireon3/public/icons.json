@@ -1,0 +1,69 @@
+{
+  "icons": [
+    {
+      "fav": false,
+      "name": "VT",
+      "shortname": "vegetarian",
+      "longname": "Vegetarian",
+      "id": 1,
+      "icns": ["vt-.svg", "vt.svg", "vt+.svg"]
+    },
+    {
+      "fav": false,
+      "name": "VG",
+      "shortname": "vegan",
+      "longname": "Vegan",
+      "id": 2,
+      "icns": ["vg-.svg", "vg.svg", "vg+.svg"]
+    },
+
+    {
+      "fav": false,
+      "name": "KT",
+      "shortname": "keto",
+      "longname": "Keto",
+      "id": 3,
+      "icns": ["kt-.svg", "kt.svg", "kt+.svg"]
+    },
+    {
+      "fav": false,
+      "name": "PL",
+      "shortname": "paleo",
+      "longname": "Paleo",
+      "id": 4,
+      "icns": ["pl-.svg", "pl.svg", "pl+.svg"]
+    },
+    {
+      "fav": false,
+      "name": "GF",
+      "shortname": "gluten-",
+      "longname": "Gluten-free",
+      "id": 5,
+      "icns": ["gf-.svg", "gf.svg", "gf+.svg"]
+    },
+    {
+      "fav": false,
+      "name": "OR",
+      "shortname": "organic",
+      "longname": "Organic",
+      "id": 6,
+      "icns": ["or-.svg", "or.svg", "or+.svg"]
+    },
+    {
+      "fav": false,
+      "name": "LS",
+      "shortname": "local",
+      "longname": "Locally-sourced",
+      "id": 7,
+      "icns": ["ls-.svg", "ls.svg", "ls+.svg"]
+    },
+    {
+      "fav": false,
+      "name": "AF",
+      "shortname": "affordable",
+      "longname": "Affordable",
+      "id": 8,
+      "icns": ["af-.svg", "af.svg", "af+.svg"]
+    }
+  ]
+}
