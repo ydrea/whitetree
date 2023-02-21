@@ -62,7 +62,7 @@ export default function Home() {
         <div className={styles.grid}>
           <div className={styles.card}>
             <h5>Form</h5>
-            <Form />
+            {/* <Form /> */}
           </div>
 
           <div className={styles.card}>
@@ -78,8 +78,10 @@ export default function Home() {
           </div>
           {Object.keys(cementList).map((cement, index) => (
             <div className={styles.card} key={index}>
-              <b> {replacer(currentUser.email)}</b> <p>{cementList[cement]}</p>
-              <i className="fa-solid fa-xmark"></i>
+              <b> {replacer(currentUser.email)}</b>
+              <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-pencil"></i>
+              <p>{cementList[cement]}</p>
             </div>
           ))}
         </div>

@@ -50,6 +50,7 @@ export default function Header() {
             <Link href="/account">
               <i className="fa-regular fa-user"></i>
               <p>&#9733;</p>
+              <i class="fa-solid fa-star-half-stroke"></i>
               <p>&#9734;</p>
             </Link>
           </>
