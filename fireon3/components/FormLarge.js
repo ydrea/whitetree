@@ -48,7 +48,7 @@ function FormLarge({
           focus:text-dblk focus:bg-white focus:border-olive focus:outline-none
         "
               id="textarea-1"
-              rows="5"
+              rows="3"
               placeholder="Your comment"
               value={cement}
               onChange={(e) => cementSet(e.target.value)}

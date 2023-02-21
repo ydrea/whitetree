@@ -65,7 +65,8 @@ export default function Home() {
             {/* <Form /> */}
           </div>
 
-          <div className={styles.card}>
+          <div className="flex flex-col w-full max-w-{65ch} p-3 items-stretch">
+            {" "}
             <p>
               <FormLarge
                 cement={cement}
@@ -76,12 +77,25 @@ export default function Home() {
               />
             </p>
           </div>
+
           {Object.keys(cementList).map((cement, index) => (
-            <div className={styles.card} key={index}>
-              <b> {replacer(currentUser.email)}</b>
-              <i class="fa-solid fa-trash-can"></i>
-              <i class="fa-solid fa-pencil"></i>
-              <p>{cementList[cement]}</p>
+            <div
+              className="flex flex-col w-full max-w-auto gap-3  mt-7 p-3
+              border-transparent border rounded border-1
+              duration-300 hover:border-olive"
+              key={index}
+            >
+              <h5 className="flex flex-1 flex-row justify-between  w-full max-w-auto ">
+                {" "}
+                {replacer(currentUser.email)}
+                <div className="flex-2 px-12">
+                  <i class="fa-solid fa-pencil px-12"></i>
+                  <i class="fa-solid fa-trash-can"></i>
+                </div>
+              </h5>
+              <p className=" border-t-2 border-olive border-opacity-40">
+                {cementList[cement]}
+              </p>
             </div>
           ))}
         </div>
