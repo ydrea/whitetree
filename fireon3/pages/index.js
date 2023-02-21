@@ -6,7 +6,7 @@ import Login from "../components/Login";
 import Account from "../components/Account";
 import { useAuth } from "../context/authContext";
 import styles from "../styles/Home.module.css";
-
+// import { replacer } from "../hooks/regEx";
 import { useEffect, useState } from "react";
 import { Mod } from "../components/Modal";
 import Form from "../components/Form";
@@ -36,6 +36,11 @@ export default function Home() {
     cementListSet({ ...cementList, [newKey]: cement });
   }
   //
+  function replacer(email) {
+    const newEmail = email.replace(/\@.*/, "... ");
+    console.log("new", newEmail);
+    return newEmail;
+  }
 
   return (
     <div className={styles.container}>
@@ -73,7 +78,8 @@ export default function Home() {
           </div>
           {Object.keys(cementList).map((cement, index) => (
             <div className={styles.card} key={index}>
-              <b> {currentUser.email}:</b> <p>{cementList[cement]}</p>
+              <b> {replacer(currentUser.email)}</b> <p>{cementList[cement]}</p>
+              <i className="fa-solid fa-xmark"></i>
             </div>
           ))}
         </div>
