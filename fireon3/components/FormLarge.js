@@ -1,29 +1,36 @@
+import { signInAnonymously } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/authContext";
 
-function FormLarge() {
+function FormLarge({
+  cement,
+  cementSet,
+  cementList,
+  cementListSet,
+  handleAdd,
+}) {
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(false);
-  const [trig, trigSet] = useState(false);
+  const [trig, trigSet] = useState(true);
   //
-  const [cement, cementSet] = useState("");
 
   useEffect(() => {
-    console.log(currentUser);
-  }, []);
+    console.log(cementList);
+  }, [cementList]);
 
   return (
     <div>
-      <div className="flex justify-center">
-        <div className="mb-3 xl:w-96">
-          <label
-            for="textarea-1"
-            class="form-label inline-block mb-2 text-gray-700"
-          >
-            daj cement!
-          </label>
-          <textarea
-            className="
+      <div className="flex flex-col justify-center">
+        {trig && (
+          <div className="mb-3 xl:w-96">
+            <label
+              htmlFor="textarea-1"
+              class="form-label inline-block mb-2 text-gray-700"
+            >
+              daj cement!
+            </label>
+            <textarea
+              className="
           form-control
           block
           w-full
@@ -40,12 +47,21 @@ function FormLarge() {
           m-0
           focus:text-dblk focus:bg-white focus:border-olive focus:outline-none
         "
-            id="textarea-1"
-            rows="5"
-            placeholder="Your comment"
-            value={cement}
-          ></textarea>
-        </div>
+              id="textarea-1"
+              rows="5"
+              placeholder="Your comment"
+              value={cement}
+              onChange={(e) => cementSet(e.target.value)}
+            ></textarea>
+          </div>
+        )}
+        <button
+          onClick={() => handleAdd()}
+          className="border border-solid border-addblk py-1 mx-3 mb-3 
+            text-center uppercase text-base duration-300 hover:opacity-80"
+        >
+          add comment
+        </button>
       </div>
     </div>
   );

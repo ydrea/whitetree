@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+
 import Login from "../components/Login";
 import Account from "../components/Account";
 import { useAuth } from "../context/authContext";
@@ -13,8 +15,27 @@ import FormLarge from "../components/FormLarge";
 export default function Home() {
   const { currentUser } = useAuth();
   console.log(currentUser);
-
   const [openModal, openModalSet] = useState(false);
+  //
+  const [cementAdd, cementAddSet] = useState(false);
+  const [cement, cementSet] = useState("");
+  const [cementList, cementListSet] = useState({});
+
+  //prettier-ignore
+  async function handleAdd() {
+    if (!cement) {
+      return;
+    }
+    //Object.keys() returns an array 
+    const newKey =
+    // 1, ili...
+      Object.keys(cementList).length === 0 ? 1 :
+        //...najveci do sada +1
+        Math.max(...Object.keys(cementList)) + 1;
+        //se dodaje na listu
+    cementListSet({ ...cementList, [newKey]: cement });
+  }
+  //
 
   return (
     <div className={styles.container}>
@@ -39,30 +60,22 @@ export default function Home() {
             <Form />
           </div>
 
-          <p className={styles.card}>
-            <h5>Learn &rarr;</h5>
+          <div className={styles.card}>
             <p>
-              <FormLarge />
+              <FormLarge
+                cement={cement}
+                cementSet={cementSet}
+                cementList={cementList}
+                cementListSet={cementListSet}
+                handleAdd={handleAdd}
+              />
             </p>
-          </p>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          </div>
+          {Object.keys(cementList).map((cement, index) => (
+            <div className={styles.card} key={index}>
+              <b> {currentUser.email}:</b> <p>{cementList[cement]}</p>
+            </div>
+          ))}
         </div>
       </main>
 
