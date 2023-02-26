@@ -7,7 +7,7 @@ function FormLarge({
   cementSet,
   cementList,
   cementListSet,
-  handleAdd,
+  handleAddCement,
 }) {
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(false);
@@ -56,7 +56,7 @@ function FormLarge({
           </div>
         )}
         <button
-          onClick={() => handleAdd()}
+          onClick={() => handleAddCement()}
           className="border border-solid border-addblk py-1 mx-3 mb-3 
             text-center uppercase text-base duration-300 hover:opacity-80"
         >
