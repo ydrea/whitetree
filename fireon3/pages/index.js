@@ -87,7 +87,6 @@ export default function Home() {
 
         <div className={styles.grid}>
           <div className={styles.card}>
-            <h5>Form</h5>
             <FormImage />
           </div>
 
@@ -99,7 +98,7 @@ export default function Home() {
                 cementSet={cementSet}
                 cementList={cementList}
                 cementListSet={cementListSet}
-                handleAdd={handleAddCement}
+                handleAddCement={handleAddCement}
               />
             </div>
           </div>

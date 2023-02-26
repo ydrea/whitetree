@@ -15,7 +15,7 @@ const FormImage = () => {
   };
 
   return (
-    <div>
+    <div className="mx-1">
       FormImage
       <input
         type="file"
@@ -23,7 +23,13 @@ const FormImage = () => {
           uploadImgSet(e.target.files[0]);
         }}
       />
-      <button onClick={handleUpload}>upload</button>
+      <button
+        onClick={handleUpload}
+        className="border border-solid border-addblk py-1 px-3 my-1 mb-3 
+      text-center uppercase text-base duration-300 hover:opacity-70"
+      >
+        upload
+      </button>
     </div>
   );
 };

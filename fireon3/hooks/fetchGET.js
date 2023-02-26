@@ -10,7 +10,6 @@ export default function useFetchGet() {
   const { currentUser } = useAuth();
   //
   console.log(currentUser);
-
   //
   useEffect(() => {
     async function getCement() {

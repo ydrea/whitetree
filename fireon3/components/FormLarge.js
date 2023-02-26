@@ -58,7 +58,7 @@ function FormLarge({
         <button
           onClick={() => handleAddCement()}
           className="border border-solid border-addblk py-1 mx-3 mb-3 
-            text-center uppercase text-base duration-300 hover:opacity-80"
+            text-center uppercase text-base duration-300 hover:opacity-70"
         >
           add comment
         </button>
